@@ -1,0 +1,224 @@
+//== Variables
+//
+$color-white: #ffffff;
+$color-white-darker: darken($color-white, 10%);
+$color-white-darken: darken($color-white, 15%);
+$header-height: 80px;
+$nav-toggle-size: 2rem;
+$nav-toggle-transition-speed: 0.3s;
+$nav-transition-speed: 0.6s;
+$nav-width: 11vw;
+$zindex-header: 500;
+$active-marker-color: #a9a96c; // Active link marker color
+
+//== Reset styles
+//
+html {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-white-darker;
+}
+
+h1 {
+  font-size: 2.441rem;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+//== Header
+header {
+  height: $header-height;
+  left: 0;
+  padding: 0.5rem;
+  position: fixed;
+  text-align: right;
+  top: 0;
+  transition: transform $nav-transition-speed;
+  width: 100%;
+  z-index: $zindex-header;
+}
+
+//== Container
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+//== Navigation
+.nav-button {
+  text-transform: uppercase;
+}
+
+.nav-wrapper {
+  background-color: transparent;
+  height: 100%;
+  padding-top: $header-height;
+  perspective: 1000px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform $nav-transition-speed, visibility $nav-transition-speed;
+  visibility: hidden;
+  width: $nav-width;
+
+  .nav-visible & {
+    transform: translateX(0);
+    visibility: visible;
+  }
+}
+
+.nav {
+  margin-top: 85%;
+  position: relative;
+  transform: rotateY(90deg);
+  transform-origin: left center;
+  transition: transform $nav-transition-speed;
+
+  .nav-visible & {
+    transform: rotateY(0);
+  }
+
+  li {
+    list-style-type: none;
+    margin-bottom: 37px;
+
+    &.active {
+      a {
+        border: 2px solid $active-marker-color;
+        border-radius: 10px;
+        padding: 10px 15px;
+        background-color: rgba($active-marker-color, 0.2);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    line-height: 1.4;
+    padding: 0.7em 0.5em 0.7em 1.4em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+
+    &:focus,
+    &:hover {
+      color: #2b3145;
+      text-decoration: none;
+      transform: scale(1.05);
+      text-shadow: 2px 2px 8px rgba(43, 49, 69, 0.5);
+    }
+  }
+}
+
+//== Active Link Marker
+.nav-marker {
+  position: absolute;
+  right: 0;
+  width: 3px;
+  height: 2.8rem;
+  background-color: $active-marker-color;
+  transition: top 0.3s ease-in-out;
+
+  &:before {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: inherit;
+  }
+}
+
+//== Mobile Menu Toggle
+@mixin button-lines {
+  background: $color-white;
+  border-radius: $nav-toggle-size / 10;
+  display: inline-block;
+  height: $nav-toggle-size / 10;
+  width: $nav-toggle-size;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #000;
+  }
+}
+
+.button-lines {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: $nav-toggle-size / 2 1.5rem;
+  user-select: none;
+}
+
+.lines {
+  @include button-lines;
+  position: relative;
+
+  &:after,
+  &:before {
+    @include button-lines;
+    content: "";
+    left: 0;
+    position: absolute;
+  }
+
+  &:after {
+    top: $nav-toggle-size / 4;
+  }
+
+  &:before {
+    top: -$nav-toggle-size / 4;
+  }
+}
+
+.button-lines-x {
+  .lines {
+    transition: background 0.3s ease;
+
+    &:after,
+    &:before {
+      transform-origin: 50% 50% 0;
+      transition: top 0.3s 0.4s ease, transform 0.3s ease;
+    }
+  }
+
+  .nav-visible & {
+    .lines {
+      background: transparent;
+
+      &:after,
+      &:before {
+        top: 0;
+        transition: top 0.3s ease, transform 0.3s 0.3s ease;
+      }
+
+      &:after {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+
+      &:before {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+    }
+  }
+}
