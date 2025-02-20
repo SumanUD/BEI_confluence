@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.scss";
-import BEILogo from "/public/BEI_logo.png";
+import BEILogo from "/assets/BEI_Logo.png";
 
 const Navbar = () => {
   const location = useLocation(); // Get current URL
