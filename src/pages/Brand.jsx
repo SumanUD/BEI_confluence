@@ -24,7 +24,7 @@ const Brand = () => {
             </div>
             <Button_v1 />
             <ImageGallery />
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 };

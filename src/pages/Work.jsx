@@ -32,7 +32,7 @@ const Work = () => {
           ))}
         </motion.ul>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

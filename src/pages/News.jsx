@@ -10,7 +10,7 @@ const News = () => {
       <div className="news">
 
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

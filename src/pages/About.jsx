@@ -9,7 +9,7 @@ const AboutUs = () => {
       <Navbar />
       <div className="about">
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

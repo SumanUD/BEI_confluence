@@ -10,7 +10,7 @@ const Services = () => {
       <div className="services">
 
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
