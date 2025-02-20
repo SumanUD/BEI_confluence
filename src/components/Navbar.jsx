@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.scss";
+import BEILogo from "/public/BEI_logo.png";
 
 const Navbar = () => {
   const location = useLocation(); // Get current URL
@@ -25,6 +26,10 @@ const Navbar = () => {
   return (
     <>
       <header>
+      <Link to="/">
+        <img src={BEILogo} alt="BEI Logo" />
+      </Link>
+
         <button
           className="nav-button button-lines button-lines-x close"
           type="button"

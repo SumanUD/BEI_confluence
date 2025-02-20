@@ -52,6 +52,11 @@ header {
   transition: transform $nav-transition-speed;
   width: 100%;
   z-index: $zindex-header;
+
+  img {
+    float: left;
+    width: 80px;
+  }
 }
 
 //== Container
@@ -85,29 +90,39 @@ header {
 }
 
 .nav {
-  margin-top: 70%;
   position: relative;
   transform: rotateY(90deg);
   transform-origin: left center;
   transition: transform $nav-transition-speed;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Ensures items are centered horizontally
+  justify-content: center; // Ensures items are centered vertically
+  height: 80vh; // Makes sure it spans the full viewport height
 
   .nav-visible & {
     transform: rotateY(0);
   }
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; // Controls spacing between li elements
+    height: 100%; // Takes full height to help with centering
+  }
+
   li {
     list-style-type: none;
-    margin-bottom: 37px;
-    // color: white !important;
+    padding: 10px 0; // Adds space around each item
 
     &.active {
       a {
         border-bottom: 2px solid $active-marker-color;
         border-right: 2px solid $active-marker-color;
-
         border-radius: 10px;
         padding: 10px 15px;
-        // background-color: rgba($active-marker-color, 0.2);
         transition: all 0.3s ease-in-out;
       }
     }
@@ -122,14 +137,15 @@ header {
 
     &:focus,
     &:hover {
-      color: lighten(#bbda0a, 15%); // Slightly lighter color on hover
+      color: lighten(#bbda0a, 15%);
       text-decoration: none;
-      transform: scale(1.20) translateY(-2px); // Slight lift effect
-      text-shadow: 0px 4px 12px rgba(43, 49, 69, 0.6); // Softer glow effect
+      transform: scale(1.20) translateY(-2px);
+      text-shadow: 0px 4px 12px rgba(43, 49, 69, 0.6);
       transition: all 0.3s ease-in-out;
     }
   }
 }
+
 
 //== Active Link Marker
 .nav-marker {
