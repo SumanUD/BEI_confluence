@@ -135,6 +135,9 @@ header {
     padding: 0.7em 0.5em 0.7em 1.4em;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke: 0.5px black;
 
     &:focus,
     &:hover {
@@ -177,9 +180,6 @@ header {
   width: $nav-toggle-size;
   transition: background 0.3s ease;
 
-  &:hover {
-    background: #000;
-  }
 }
 
 .button-lines {
@@ -189,6 +189,7 @@ header {
   display: inline-block;
   padding: $nav-toggle-size / 2 1.5rem;
   user-select: none;
+  
 }
 
 .lines {
@@ -205,10 +206,12 @@ header {
 
   &:after {
     top: $nav-toggle-size / 4;
+    border: 0.1px solid black;
   }
 
   &:before {
     top: -$nav-toggle-size / 4;
+    border: 0.1px solid black;
   }
 }
 
