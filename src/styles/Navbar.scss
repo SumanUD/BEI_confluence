@@ -119,11 +119,12 @@ header {
 
     &.active {
       a {
-        border-bottom: 2px solid $active-marker-color;
-        border-right: 2px solid $active-marker-color;
-        border-radius: 10px;
-        padding: 10px 15px;
+        // border-bottom: 2px solid $active-marker-color;
+        // border-right: 2px solid $active-marker-color;
+        // border-radius: 10px;
+        // padding: 10px 15px;
         transition: all 0.3s ease-in-out;
+        color: #bbda0a;
       }
     }
   }
@@ -139,7 +140,7 @@ header {
     &:hover {
       color: lighten(#bbda0a, 15%);
       text-decoration: none;
-      transform: scale(1.20) translateY(-2px);
+      transform: scale(1.10) translateY(-2px);
       text-shadow: 0px 4px 12px rgba(43, 49, 69, 0.6);
       transition: all 0.3s ease-in-out;
     }
