@@ -116,6 +116,8 @@ header {
   li {
     list-style-type: none;
     padding: 10px 0; // Adds space around each item
+    z-index: 9999;
+
 
     &.active {
       a {
