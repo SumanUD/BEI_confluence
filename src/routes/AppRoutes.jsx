@@ -7,6 +7,8 @@ import Services from "../pages/Services";
 import News from "../pages/News";
 import Contact from "../pages/Contact";
 import Brand from "../pages/Brand";
+import Brand2 from "../pages/Brand2";
+import Brand3 from "../pages/Brand3";
 
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/brand1" element={<Brand />} />
+        <Route path="/brand2" element={<Brand2 />} />
+        <Route path="/brand3" element={<Brand3 />} />
 
       </Routes>
     </Router>

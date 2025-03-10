@@ -1,5 +1,5 @@
 .image-gallery {
-  background-image: url("/assets/brands_bg.webp");
+  // background-image: url("/assets/brands_bg.webp");
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -32,5 +32,20 @@
     &:hover {
       transform: scaleY(1.1);
     }
+  }
+}
+
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+//   background: #2B3044;
+
+  h2 {
+    font: 400 32px "Montserrat", sans-serif;
+    text-transform: uppercase;
+    color: #000;
   }
 }

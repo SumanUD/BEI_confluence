@@ -1,0 +1,98 @@
+.brand3{
+
+::-webkit-scrollbar {
+    width: 0; /* Hides the scrollbar width */
+    height: 0;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    display: none; /* Ensures scrollbar is hidden */
+  }
+  
+  
+  
+  .brand {
+    background-image: url("/assets/cremica.png");
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+    width: 100%;
+    }
+  
+  
+    .below_banner {
+      display: flex;
+      flex-direction: column; // Stack image on top and text below
+      align-items: center; // Center everything horizontally
+      text-align: center; // Ensure text is centered
+      width: 100%;
+      padding: 20px 0; // Add spacing
+    }
+    
+    .banner-image {
+      width: 70%; // Set image width to 70% of the container
+      max-width: 800px; // Prevent it from getting too big
+      height: auto; // Keep aspect ratio
+    }
+    
+    .below_banner_content {
+      width: 70%;
+      max-width: 800px; // Keep text aligned with the image width
+      padding: 20px 0;
+      p {
+        font-size: 16px; /* Adjust font size for better readability */
+        line-height: 1.6; /* Improves text flow */
+        color: #333; /* Dark gray for better contrast */
+        font-weight: 400; /* Normal weight for readability */
+        text-align: justify; /* Justifies text for a clean look */
+        letter-spacing: 0.5px; /* Slightly spaced out letters for clarity */
+        padding: 10px 15px; /* Adds some breathing space */
+        // border-left: 4px solid #bbda0a; /* Stylish left border */
+        // background: rgba(187, 218, 10, 0.1); /* Light highlight effect */
+        border-radius: 5px; /* Smooth rounded corners */
+        transition: all 0.3s ease-in-out;
+      
+      }
+      
+    }
+  
+    .button_container {
+      display: flex;
+      justify-content: center; /* Centers horizontally */
+      align-items: center; /* Centers vertically */
+      // height: 100vh; /* Full viewport height */
+    }
+    
+    .brand_button {
+      margin-bottom: 60px;
+      background: linear-gradient(to right, #222, #a39696);
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px; /* Fully rounded edges */
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3); /* Soft shadow */
+      
+      &::after {
+        content: "▶"; /* Arrow symbol */
+        font-size: 14px;
+        transition: transform 0.3s ease-in-out;
+      }
+    
+      &:hover {
+        background: linear-gradient(to left, #222, #a39696); /* Slightly lighter on hover */
+        transform: scale(1.05);
+      }
+    
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+    
+}

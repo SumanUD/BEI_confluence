@@ -6,28 +6,36 @@ import Footer from "../components/Footer";
 import "../styles/work.scss";
 import "../styles/global.scss";
 
+const brands = [
+  { name: "CRAX", link: "/brand2" },
+  { name: "8PM", link: "/brand1" },
+  { name: "TRIDENT", link: "/brand1" },
+  { name: "IIL", link: "/brand1" },
+  { name: "MEDERMA", link: "/brand1" },
+  { name: "CREMICA/EO", link: "/brand3" },
+  { name: "SCHMITTEN", link: "/brand1" },
+  { name: "WAI WAI", link: "/brand1" },
+];
+
+const listVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+};
+
 const Work = () => {
-  const listVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { staggerChildren: 0.2 } 
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: 50 },  // Starts 50px to the right
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
-  };
-
   return (
     <>
       <Navbar />
       <div className="work">
         <motion.ul className="brands" variants={listVariants} initial="hidden" animate="visible">
-          {["CRAX", "8PM", "TRIDENT", "IIL", "MEDERMA", "CREMICA/EO", "SCHMITTEN", "WAI WAI"].map((brand, index) => (
+          {brands.map((brand, index) => (
             <motion.li key={index} variants={itemVariants}>
-              <Link to="/brand1">{brand}</Link>
+              <Link to={brand.link}>{brand.name}</Link>
             </motion.li>
           ))}
         </motion.ul>

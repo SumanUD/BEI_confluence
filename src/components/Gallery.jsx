@@ -21,8 +21,12 @@ const images = [
 ];
 
 const ImageGallery = () => {
-  return (
+  return (<>
+    <div className="section-header">
+      <h2>Image Gallery</h2>
+    </div>
     <div className="image-gallery">
+
       <div className="d-flex flex-row flex-wrap justify-content-center">
         {images.map((column, colIndex) => (
           <div className="flex-column" key={colIndex}>
@@ -38,6 +42,7 @@ const ImageGallery = () => {
         ))}
       </div>
     </div>
+  </>
   );
 };
 
