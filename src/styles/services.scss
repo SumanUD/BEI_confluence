@@ -1,19 +1,500 @@
 .services {
-  background-image: url("/assets/services/banner.png");
+
+  .first_banner {
+  background-color: #49b9e0;
   background-size: 100% 100%;
   background-position: bottom;
   height: 100vh;
   width: 100%;
+  position: relative;
 
- 
-
-  .bulb-animation{
-    position: relative;
+  .bulb-animation {
+    position: absolute;
     top: 200px;
-    left: 100px;
+    left: 200px;
     width: max-content;
-    .circle_img{
-      width: 700px;
+
+    .circle_img {
+      width: 560px;
+      cursor: pointer;
+    }
+
+    .bulb_image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      animation: bulbGlow 1s infinite alternate ease-in-out; // Pulsing glow animation
+      cursor: pointer;
+    }
+
+    .light_arrows {
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 284px;
+      z-index: 3;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    // Hide light_arrows when hovering over the bulb
+    .bulb_image:hover ~ .light_arrows {
+      opacity: 0;
     }
   }
+
+  .brand-statergy {
+    position: absolute;
+    top: 200px;
+    right: 455px;
+    width: max-content;
+
+    img {
+      width: 515px;
+    }
+
+    .inside_text {
+      position: absolute;
+      margin-top: 40px;
+      color: #fff;
+      font-size: 17px;
+    }
   }
+}
+
+.second_banner {
+  background-color: #ffea00;
+  background-size: 100% 100%;
+  background-position: bottom;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  .pen-animation {
+    position: absolute;
+    top: 200px;
+    right: 300px;
+    width: max-content;
+  
+    .circle_img {
+      width: 560px;
+      cursor: pointer;
+    }
+  
+    .pen_image {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      animation: penGlow 1.5s infinite alternate ease-in-out; // Pen glow effect
+      cursor: pointer;
+    }
+  
+    .fire {
+      position: absolute;
+      top: 75%; // Positioned below the pen
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      z-index: 2;
+      transition: opacity 0.5s ease-in-out;
+      animation: fireFlicker 0.5s infinite alternate ease-in-out; // Fire flicker animation
+    }
+  
+    // Hide fire on pen hover
+    .pen_image:hover ~ .fire {
+      opacity: 0;
+    }
+  
+    // Subtle shake effect when hovering over pen
+    .pen_image:hover {
+      animation: shake 0.3s ease-in-out;
+    }
+  }
+
+  .brand-statergy {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: max-content;
+
+    img {
+      width: 515px;
+    }
+
+    .inside_text {
+      position: absolute;
+      margin-top: 40px;
+      color: #000;
+      font-size: 17px;
+    }
+  }
+}
+
+
+.third_banner {
+  background-color: #49b9e0;
+  background-size: 100% 100%;
+  background-position: bottom;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  .boy-animation {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: max-content;
+
+    .circle_img {
+      width: 560px;
+      cursor: pointer;
+    }
+
+    .boy_image, .boy_image_close {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .boy_image_close {
+      opacity: 0; // Initially hidden
+    }
+
+    // On hover, swap the images
+    .circle_img:hover ~ .boy_image {
+      opacity: 0;
+    }
+
+    .circle_img:hover ~ .boy_image_close {
+      opacity: 1;
+    }
+  }
+
+  .brand-statergy {
+    position: absolute;
+    top: 200px;
+    right: 455px;
+    width: max-content;
+
+    img {
+      width: 515px;
+    }
+
+    .inside_text {
+      position: absolute;
+      margin-top: 40px;
+      color: #fff;
+      font-size: 17px;
+    }
+  }
+}
+
+.fourth_banner {
+  background-color: #ffea00;
+  background-size: 100% 100%;
+  background-position: bottom;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  .post-animation {
+    position: absolute;
+    top: 200px;
+    right: 300px;
+    width: max-content;
+
+    .circle_img {
+      width: 560px;
+      cursor: pointer;
+    }
+
+    .post_image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 270px;
+      animation: floatJiggleEffect 3s infinite ease-in-out; // Floating effect
+      transition: transform 0.4s ease-in-out;
+    }
+
+    // Hover Effect: Scale Up
+    .post_image:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  .brand-statergy {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: max-content;
+
+    img {
+      width: 515px;
+    }
+
+    .inside_text {
+      position: absolute;
+      margin-top: 40px;
+      color: #000;
+      font-size: 17px;
+    }
+  }
+}
+
+.fifth_banner {
+  background-color: #49b9e0;
+  background-size: 100% 100%;
+  background-position: bottom;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  .social-animation {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: max-content;
+
+    .circle_img {
+      width: 560px;
+      cursor: pointer;
+    }
+
+    .hash_image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      animation: bounceFade 3s infinite ease-in-out;
+      transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    // Hover Effect: Bounce Higher & Fully Visible
+    .hash_image:hover {
+      animation: bounceFadeHover 1.5s infinite ease-in-out;
+      opacity: 1; // Ensures full visibility
+    }
+  }
+
+  .socialMedia-statergy {
+    position: absolute;
+    top: 200px;
+    right: 455px;
+    width: max-content;
+
+    img {
+      width: 515px;
+    }
+
+    .inside_text {
+      position: absolute;
+      margin-top: 40px;
+      color: #fff;
+      font-size: 17px;
+    }
+  }
+}
+
+.sixth_banner {
+  background-color: #ffea00;
+  background-size: 100% 100%;
+  background-position: bottom;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  .chart-animation {
+    position: absolute;
+    top: 200px;
+    right: 300px;
+    width: max-content;
+
+    .circle_img {
+      width: 560px;
+      cursor: pointer;
+    }
+
+    .chart_image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 270px;
+      animation: scaleRotate 3s infinite ease-in-out;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    // Hover Effect: Faster Rotation & Slight Enlargement
+    .chart_image:hover {
+      animation: scaleRotateHover 1.5s infinite ease-in-out;
+    }
+  }
+
+  .brand-statergy {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: max-content;
+
+    img {
+      width: 515px;
+    }
+
+    .inside_text {
+      position: absolute;
+      margin-top: 40px;
+      color: #000;
+      font-size: 17px;
+    }
+  }
+}
+
+}
+
+.nav-wrapper {
+  z-index: 99;
+}
+
+// Bulb glow effect (Keeps glowing)
+@keyframes bulbGlow {
+  0% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 100, 0.5));
+  }
+  25% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 100, 1));
+  }
+  75% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 100, 1.5));
+  }
+
+  100% {
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 100, 2));
+  }
+}
+
+
+@keyframes penGlow {
+  0% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 165, 0, 0.5)); // Light orange glow
+  }
+  100% {
+    filter: drop-shadow(0px 0px 15px rgba(255, 165, 0, 1)); // Stronger glow
+  }
+}
+
+// Flickering fire effect
+@keyframes fireFlicker {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+// Shake effect when hovering over pen
+@keyframes shake {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  25% { transform: translate(-50%, -50%) rotate(-3deg); }
+  50% { transform: translate(-50%, -50%) rotate(3deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes floatJiggleEffect {
+  0% {
+    transform: translate(-50%, -50%) translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translate(-50%, -50%) translateY(-15px) translateX(-5px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(0px) translateX(5px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translateY(-15px) translateX(-5px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes rotatePulse {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes bounceFade {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-10px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+// Hover Effect: Higher Bounce & Fully Visible
+@keyframes bounceFadeHover {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes scaleRotate {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05) rotate(3deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+
+// Hover Effect: Faster Spin & Growth
+@keyframes scaleRotateHover {
+  0% {
+    transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+  }
+}
+
+

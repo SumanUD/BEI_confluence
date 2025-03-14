@@ -44,9 +44,9 @@ const VideoGallery = () => {
 
   return (
     <div className="content">
-      <div className="section-header">
+      {/* <div className="section-header">
         <h2>Video Gallery</h2>
-      </div>
+      </div> */}
       <div className="video-gallery">
         {videos.map((video, index) => (
           <div key={index} className="gallery-item" onClick={() => openModal(video.videoUrl)}>

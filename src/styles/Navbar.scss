@@ -71,6 +71,7 @@ header {
 }
 
 .nav-wrapper {
+
   background-color: transparent;
   height: 100%;
   padding-top: $header-height;
@@ -132,6 +133,7 @@ header {
   }
 
   a {
+    text-decoration: none;
     display: block;
     line-height: 1.4;
     padding: 0.7em 0.5em 0.7em 1.4em;
@@ -247,4 +249,12 @@ header {
       }
     }
   }
+}
+
+
+@media (max-width: 768px) {
+  header img {
+    float: left;
+    width: 50px;
+}
 }

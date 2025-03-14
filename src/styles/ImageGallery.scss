@@ -1,51 +1,7 @@
-.image-gallery {
-  // background-image: url("/assets/brands_bg.webp");
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-
-  .flex-column {
-    display: inline-block;
-    flex-direction: column;
-    max-width: 260px;
-  }
-
-  img {
-    margin: 5px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease-in-out;
-    padding: 6px;
-  }
-
-  // Apply scaling effect only to specific images
-  .scale {
-    transform: scaleY(1.05);
-    padding-top: 5px;
-    padding: 6px;
-
-    &:hover {
-      transform: scaleY(1.1);
-    }
+.imageGallery {
+  .container{
+  .row {
+    margin: 15px;
   }
 }
-
-
-.section-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-//   background: #2B3044;
-
-  h2 {
-    font: 400 32px "Montserrat", sans-serif;
-    text-transform: uppercase;
-    color: #000;
-  }
 }

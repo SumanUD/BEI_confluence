@@ -25,7 +25,8 @@ const Brand2 = () => {
       <Navbar />
       <div className="brand"></div>
       <div className="below_banner">
-        <img src="/assets/crax12.jpg" alt="Banner" className="banner-image" />
+        <VideoGallery />
+
         <div className="below_banner_content">
           <p>
             Introducing 8PM Premium Black, India’s new benchmark in premium whisky. Crafted as a Master’s Selection, it’s designed for connoisseurs who appreciate the finer things in life. This exceptional blend is a tribute to success, friendship, and the unique camaraderie that even transforms rivals into friends over a shared drink.
@@ -38,7 +39,6 @@ const Brand2 = () => {
         <button className="brand_button" type="submit">Learn More</button>
       </div>
 
-      <VideoGallery />
       <ImageGallery />
       <Footer />
     </div>
