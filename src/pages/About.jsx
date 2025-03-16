@@ -26,159 +26,160 @@ const AboutUs = () => {
     "His global journey includes transformative stints with BOTIM in Dubai and Polygon, a trailblazing Web3 company also based in Dubai, where he blended innovation with creativity in the tech-forward space.",
   ];
 
-  const [visibleCount, setVisibleCount] = useState(1);
+  const [visibleCountTapas, setVisibleCountTapas] = useState(1);
+  const [visibleCountAbhishek, setVisibleCountAbhishek] = useState(1);
+  const [visibleCountShahid, setVisibleCountShahid] = useState(1);
+
 
   return (
     <>
       <Navbar />
       <div className="about-container">
-      <div className="aboutUs_banner">
-      <div className="video-container">
-        <iframe
-          width="800"
-          height="405"
-          src="https://www.youtube.com/embed/YVkUvmDQ3HY?si=I5cM5YmwPhTH76k0"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
-      </div>
-    </div>
+        <div className="aboutUs_banner">
+            <div className="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/YVkUvmDQ3HY?si=I5cM5YmwPhTH76k0"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
 
-      <div className="about-grid-section">
-        <div className="text-content">
-          <h2>About Us</h2>
-          <p>
-          BEI is a full-service integrated independent advertising agency with over 26 years of
-          experience in building brands. <br/>
-          Founded in 1998 by the visionary Tapas Gupta, honored as The Marketing and Advertising 
-          Person of the Year (2024), BEI’s purpose is to push the growth trajectory of its clients on all 
-          possible fronts. Be it Brand Strategy, Creative Execution, Digital Marketing, and Mainline/On
-          line Media planning & buying, BEI is an experienced team to work with.<br/>
-          Over the years, BEI Confluence has evolved into a dynamic force in the advertising industry, 
-          fuelled by enduring partnerships with leading brands across categories. Today, BEI Conflu
-          ence stands tall as a mid-sized 360 communication powerhouse, boasting a team of over 
-          100 talented professionals across two offices.<br/>
-          From crafting cutting-edge brand strategies, executing captivating creative campaigns, and 
-          making the most of digital marketing expertise, BEI Confluence is your one-stop destination 
-          for all things advertising. <br/>
-          </p>
+        <div className="about-grid-section">
+          <div className="text-content">
+            <h2>About Us</h2>
+            <p>
+              BEI is a full-service integrated independent advertising agency with over 26 years of
+              experience in building brands. <br />
+              Founded in 1998 by the visionary Tapas Gupta, honored as The Marketing and Advertising
+              Person of the Year (2024), BEI’s purpose is to push the growth trajectory of its clients on all
+              possible fronts. Be it Brand Strategy, Creative Execution, Digital Marketing, and Mainline/On
+              line Media planning & buying, BEI is an experienced team to work with.<br />
+              Over the years, BEI Confluence has evolved into a dynamic force in the advertising industry,
+              fuelled by enduring partnerships with leading brands across categories. Today, BEI Conflu
+              ence stands tall as a mid-sized 360 communication powerhouse, boasting a team of over
+              100 talented professionals across two offices.<br />
+              From crafting cutting-edge brand strategies, executing captivating creative campaigns, and
+              making the most of digital marketing expertise, BEI Confluence is your one-stop destination
+              for all things advertising. <br />
+            </p>
+          </div>
+          <div className="image-content">
+            <img src={about_us} alt="Our Journey" />
+          </div>
         </div>
-        <div className="image-content">
-          <img src={about_us} alt="Our Journey" />
-        </div>
-    </div>
-
-
 
         <div className="tapas_gupta">
-        <div className="profile-section">
-          <div className="profile-image">
-            <img src={tapasGupta} alt="Tapas Gupta" />
+          <div className="profile-section">
+            <div className="profile-image">
+              <img src={tapasGupta} alt="Tapas Gupta" />
+            </div>
+
+            <div className="social-icons">
+              <FaFacebook />
+              <FaTwitter />
+              <FaLinkedin />
+            </div>
           </div>
 
-          <div className="social-icons">
-            <FaFacebook />
-            <FaTwitter />
-            <FaLinkedin />
-          </div>
-        </div>
-
-        <div className="bio-section">
-          <div className="frame">
-            <div className="paper"></div>
-            <div className="paper"></div>
-            <div className="paper"></div>
-            <div className="paper">
-              <div className="bio-box">
-                <div className="border-design">
-                  {tapasGuptaParagraphs.slice(0, visibleCount).map((para, index) => (
-                    <p key={index}>{para}</p>
-                  ))}
-                  {visibleCount < tapasGuptaParagraphs.length && (
-                    <button onClick={() => setVisibleCount(visibleCount + 1)} className="read-more">Read More</button>
-                  )}
-                  {visibleCount > 1 && (
-                    <button onClick={() => setVisibleCount(1)} className="read-less">Read Less</button>
-                  )}
+          <div className="bio-section">
+            <div className="frame">
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper">
+                <div className="bio-box">
+                  <div className="border-design">
+                    {tapasGuptaParagraphs.slice(0, visibleCountTapas).map((para, index) => (
+                      <p key={index}>{para}</p>
+                    ))}
+                    {visibleCountTapas < tapasGuptaParagraphs.length && (
+                      <button onClick={() => setVisibleCountTapas(visibleCountTapas + 1)} className="read-more">Read More</button>
+                    )}
+                    {visibleCountTapas > 1 && (
+                      <button onClick={() => setVisibleCountTapas(1)} className="read-less">Read Less</button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
+
         <div className="abhishek_gupta">
 
-        <div className="bio-section">
-          <div className="frame">
-            <div className="paper"></div>
-            <div className="paper"></div>
-            <div className="paper"></div>
-            <div className="paper">
-              <div className="bio-box">
-                <div className="border-design">
-                  {abhishekGuptaParagraphs.slice(0, visibleCount).map((para, index) => (
-                    <p key={index}>{para}</p>
-                  ))}
-                  {visibleCount < abhishekGuptaParagraphs.length && (
-                    <button onClick={() => setVisibleCount(visibleCount + 1)} className="read-more">Read More</button>
-                  )}
-                  {visibleCount > 1 && (
-                    <button onClick={() => setVisibleCount(1)} className="read-less">Read Less</button>
-                  )}
+          <div className="bio-section">
+            <div className="frame">
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper">
+                <div className="bio-box">
+                  <div className="border-design">
+                    {abhishekGuptaParagraphs.slice(0, visibleCountAbhishek).map((para, index) => (
+                      <p key={index}>{para}</p>
+                    ))}
+                    {visibleCountAbhishek < abhishekGuptaParagraphs.length && (
+                      <button onClick={() => setVisibleCountAbhishek(visibleCountAbhishek + 1)} className="read-more">Read More</button>
+                    )}
+                    {visibleCountAbhishek > 1 && (
+                      <button onClick={() => setVisibleCountAbhishek(1)} className="read-less">Read Less</button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="profile-section">
-          <div className="profile-image">
-            <img src={abhishekGupta} alt="Abhishek Gupta" />
-          </div>
+          <div className="profile-section">
+            <div className="profile-image">
+              <img src={abhishekGupta} alt="Abhishek Gupta" />
+            </div>
 
-          <div className="social-icons">
-            <FaFacebook />
-            <FaTwitter />
-            <FaLinkedin />
+            <div className="social-icons">
+              <FaFacebook />
+              <FaTwitter />
+              <FaLinkedin />
+            </div>
           </div>
-        </div>
 
         </div>
         <div className="tapas_gupta">
-        <div className="profile-section">
-          <div className="profile-image">
-            <img src={shahidHussain} alt="Tapas Gupta" />
+          <div className="profile-section">
+            <div className="profile-image">
+              <img src={shahidHussain} alt="Tapas Gupta" />
+            </div>
+            <div className="social-icons">
+              <FaFacebook />
+              <FaTwitter />
+              <FaLinkedin />
+            </div>
           </div>
-          <div className="social-icons">
-            <FaFacebook />
-            <FaTwitter />
-            <FaLinkedin />
-          </div>
-        </div>
 
-        <div className="bio-section">
-          <div className="frame">
-            <div className="paper"></div>
-            <div className="paper"></div>
-            <div className="paper"></div>
-            <div className="paper">
-              <div className="bio-box">
-                <div className="border-design">
-                  {shahidHussainParagraphs.slice(0, visibleCount).map((para, index) => (
-                    <p key={index}>{para}</p>
-                  ))}
-                  {visibleCount < shahidHussainParagraphs.length && (
-                    <button onClick={() => setVisibleCount(visibleCount + 1)} className="read-more">Read More</button>
-                  )}
-                  {visibleCount > 1 && (
-                    <button onClick={() => setVisibleCount(1)} className="read-less">Read Less</button>
-                  )}
-                </div>
+          <div className="bio-section">
+            <div className="frame">
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper">
+                <div className="bio-box">
+                  <div className="border-design">
+                    {shahidHussainParagraphs.slice(0, visibleCountShahid).map((para, index) => (
+                      <p key={index}>{para}</p>
+                    ))}
+                    {visibleCountShahid < shahidHussainParagraphs.length && (
+                      <button onClick={() => setVisibleCountShahid(visibleCountShahid + 1)} className="read-more">Read More</button>
+                    )}
+                    {visibleCountShahid > 1 && (
+                      <button onClick={() => setVisibleCountShahid(1)} className="read-less">Read Less</button>
+                    )}
+                  </div>
+                </div>  
               </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
       <Footer />
