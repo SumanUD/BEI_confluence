@@ -9,6 +9,46 @@ import "../styles/brand.scss";
 import VideoGallery from "../components/VideoGallery";
 import ImageGallery from "../components/Gallery";
 
+
+const imageList = [
+  { id: 1, src: "/assets/englishOven/Atta Burger Bun 200g (Front).png", alt: "Atta Burger Bun 200g (Front)" },
+  { id: 2, src: "/assets/englishOven/Chocochip Muffin.jpg", alt: "Chocochip Muffin" },
+  { id: 3, src: "/assets/englishOven/Chocolate Lava Cake.jpg", alt: "Chocolate Lava Cake" },
+  { id: 4, src: "/assets/englishOven/Fruit Bun_1.jpg", alt: "Fruit Bun_1" },
+  { id: 5, src: "/assets/englishOven/Hazelnut Skillet Cookie.jpg", alt: "Hazelnut Skillet Cookie" },
+  { id: 6, src: "/assets/englishOven/Jumbo burger bun fop.jpeg", alt: "Jumbo burger bun fop" },
+  { id: 7, src: "/assets/englishOven/Kulcha Bread.jpg", alt: "Kulcha Bread" },
+  { id: 8, src: "/assets/englishOven/Pav 12 Pcs (Front).jpg", alt: "Pav 12 Pcs (Front)" },
+  { id: 9, src: "/assets/englishOven/Vanilla Chocochip Muffin.jpg", alt: "Vanilla Chocochip Muffin" },
+  { id: 10, src: "/assets/englishOven/White Bread (350) Front & Back.jpg", alt: "White Bread (350) Front & Back" },
+  { id: 11, src: "/assets/englishOven/Whole Wheat (Front).jpg", alt: "Whole Wheat (Front)" },
+  { id: 12, src: "/assets/englishOven/Zero Maida (Multigrain Bread)-07.jpg", alt: "Zero Maida (Multigrain Bread)-07" },
+  { id: 13, src: "/assets/englishOven/Zero Maida Pav_1.jpg", alt: "Zero Maida Pav_1" },
+  { id: 14, src: "/assets/englishOven/Zero_ Maida_1.jpg", alt: "Zero_ Maida_1.jpgZero_ Maida_1" },
+];
+
+const videoList = [
+  {
+    title: "Apna Apna Cremica",
+    description: "Apna Apna Cremica description",
+    image: "/assets/englishOven/White Bread (350) Front & Back.jpg",
+    videoUrl: "https://vimeo.com/1066454306/c56cd58cb5",
+  },
+  {
+    title: "English Over Bread",
+    description: "English Over Bread description",
+    image: "/assets/englishOven/Zero Maida Pav_1.jpg",
+    videoUrl: "https://vimeo.com/1066454421/b2f77ac7b9",
+  },
+  {
+      title: "English Over Burger",
+      description: "English over burger description",
+      image: "/assets/englishOven/Fruit Bun_1.jpg",
+      videoUrl: "https://vimeo.com/1066454557/658bc9fa43",
+    },
+];
+
+
 const Brand = () => {
   useEffect(() => {
     $(".video-gallery").magnificPopup({
@@ -25,7 +65,7 @@ const Brand = () => {
       <Navbar />
       <div className="brand"></div>
       <div className="below_banner">
-        <VideoGallery />
+      <VideoGallery videos={videoList} />
 
         <div className="below_banner_content">
           <p>
@@ -39,7 +79,7 @@ const Brand = () => {
         <button className="brand_button" type="submit">Learn More</button>
       </div>
 
-      <ImageGallery />
+      <ImageGallery images={imageList} />
       <Footer />
     </div>
   );

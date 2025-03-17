@@ -2,34 +2,7 @@ import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import "../styles/videoGallery.scss";
 
-const videos = [
-  {
-    title: "Mount Rainier",
-    description: "14410 feet of adventure",
-    image: "https://assets.codepen.io/156905/rainier.jpg",
-    videoUrl: "https://vimeo.com/179049611",
-  },
-  {
-    title: "Olympic National Park",
-    description: "Mountains, rain forests, wild coastlines",
-    image: "https://assets.codepen.io/156905/olympicnationalpark.jpg",
-    videoUrl: "https://vimeo.com/108785446",
-  },
-  {
-    title: "North Cascades",
-    description: "The mountains are calling",
-    image: "https://assets.codepen.io/156905/northcascadespark.jpg",
-    videoUrl: "https://vimeo.com/3653567",
-  },
-  {
-    title: "Mount St. Helens",
-    description: "The one and only",
-    image: "https://assets.codepen.io/156905/mountsthelens.jpg",
-    videoUrl: "https://vimeo.com/171540296",
-  },
-];
-
-const VideoGallery = () => {
+const VideoGallery = ({ videos = [] }) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const openModal = (videoUrl) => {
@@ -44,9 +17,6 @@ const VideoGallery = () => {
 
   return (
     <div className="content">
-      {/* <div className="section-header">
-        <h2>Video Gallery</h2>
-      </div> */}
       <div className="video-gallery">
         {videos.map((video, index) => (
           <div key={index} className="gallery-item" onClick={() => openModal(video.videoUrl)}>

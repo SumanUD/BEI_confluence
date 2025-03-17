@@ -36,17 +36,17 @@ const AboutUs = () => {
       <Navbar />
       <div className="about-container">
         <div className="aboutUs_banner">
-            <div className="video-container">
-              <iframe
-                src="https://www.youtube.com/embed/YVkUvmDQ3HY?si=I5cM5YmwPhTH76k0"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              ></iframe>
-            </div>
+          <div className="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/YVkUvmDQ3HY?si=I5cM5YmwPhTH76k0"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
+        </div>
 
         <div className="about-grid-section">
           <div className="text-content">
@@ -146,6 +146,7 @@ const AboutUs = () => {
           </div>
 
         </div>
+
         <div className="tapas_gupta">
           <div className="profile-section">
             <div className="profile-image">
@@ -176,10 +177,48 @@ const AboutUs = () => {
                       <button onClick={() => setVisibleCountShahid(1)} className="read-less">Read Less</button>
                     )}
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="abhishek_gupta">
+
+          <div className="bio-section">
+            <div className="frame">
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper"></div>
+              <div className="paper">
+                <div className="bio-box">
+                  <div className="border-design">
+                    {abhishekGuptaParagraphs.slice(0, visibleCountAbhishek).map((para, index) => (
+                      <p key={index}>{para}</p>
+                    ))}
+                    {visibleCountAbhishek < abhishekGuptaParagraphs.length && (
+                      <button onClick={() => setVisibleCountAbhishek(visibleCountAbhishek + 1)} className="read-more">Read More</button>
+                    )}
+                    {visibleCountAbhishek > 1 && (
+                      <button onClick={() => setVisibleCountAbhishek(1)} className="read-less">Read Less</button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="profile-section">
+            <div className="profile-image">
+              <img src={abhishekGupta} alt="Abhishek Gupta" />
+            </div>
+
+            <div className="social-icons">
+              <FaFacebook />
+              <FaTwitter />
+              <FaLinkedin />
+            </div>
+          </div>
+
         </div>
       </div>
       <Footer />

@@ -9,7 +9,7 @@ import Contact from "../pages/Contact";
 import Brand from "../pages/Brand";
 import Brand2 from "../pages/Brand2";
 import Brand3 from "../pages/Brand3";
-
+import EnglishOven from "../pages/EnglishOven";
 
 const App = () => {
   return (
@@ -24,6 +24,8 @@ const App = () => {
         <Route path="/brand1" element={<Brand />} />
         <Route path="/brand2" element={<Brand2 />} />
         <Route path="/brand3" element={<Brand3 />} />
+        <Route path="/english-oven" element={<EnglishOven />} />
+
 
       </Routes>
     </Router>

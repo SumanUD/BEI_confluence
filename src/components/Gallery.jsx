@@ -2,17 +2,9 @@ import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/ImageGallery.scss";
 
-const images = [
-  { id: 251 },
-  { id: 252 },
-  { id: 253 },
-  { id: 254 },
-  { id: 255 },
-  { id: 256 },
-];
-
-const ImageGallery = () => {
+const ImageGallery = ({ images = [] }) => {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -22,32 +14,30 @@ const ImageGallery = () => {
   };
 
   return (
-    <div className="imageGalley">
-    <div className="container">
-      <div className="row">
-        {images.map((image, index) => (
-          <div key={image.id} className="col-md-4 mb-3">
-            <img
-              src={`https://unsplash.it/600.jpg?image=${image.id}`}
-              className="img-fluid rounded"
-              alt={`Gallery ${image.id}`}
-              onClick={() => openLightbox(index)}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
-        ))}
-      </div>
+    <div className="imageGallery">
+      <div className="container">
+        <div className="row">
+          {images.map((image, index) => (
+            <div key={image.id || index} className="col-md-4 mb-3">
+              <img
+                src={image.src}
+                className="img-fluid rounded"
+                alt={image.alt || `Gallery Image ${index + 1}`}
+                onClick={() => openLightbox(index)}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+          ))}
+        </div>
 
-      {/* Lightbox */}
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        index={currentIndex}
-        slides={images.map((img) => ({
-          src: `https://unsplash.it/1200/768.jpg?image=${img.id}`,
-        }))}
-      />
-    </div>
+        {/* Lightbox */}
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          index={currentIndex}
+          slides={images.map((img) => ({ src: img.src }))}
+        />
+      </div>
     </div>
   );
 };
