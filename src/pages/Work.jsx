@@ -15,17 +15,17 @@ import "../styles/work.scss";
 
 
 const brands = [
-  { name: "8PM", link: "/brand1", logo: "/assets/brand_logo/8PM.png", className: "eight-pm" },
+  { name: "8PM Premium Black", link: "/brand1", logo: "/assets/brand_logo/8PM.png", className: "eight-pm" },
   { name: "English Oven", link: "/english-oven", logo: "/assets/brand_logo/EnglishOven.png", className: "english-oven" },
   { name: "Total Energies", link: "/english-oven", logo: "/assets/brand_logo/Total_LOGO.png", className: "total-energies" },
-  { name: "BBK", link: "/english-oven", logo: "/assets/brand_logo/BBK.png", className: "bbk" },
-  { name: "IIL", link: "/brand1", logo: "/assets/brand_logo/IIL.png", className: "iil" },
+  { name: "Biryani By Kilo", link: "/english-oven", logo: "/assets/brand_logo/BBK.png", className: "bbk" },
+  { name: "Insecticedes India", link: "/brand1", logo: "/assets/brand_logo/IIL.png", className: "iil" },
   { name: "Mederma", link: "/english-oven", logo: "/assets/brand_logo/MEDERMA.png", className: "mederma" },
   { name: "Apollo", link: "/english-oven", logo: "/assets/brand_logo/Apollo_Copy.png", className: "apollo" },
   { name: "Ziggy", link: "/english-oven", logo: "/assets/brand_logo/Ziggy.png", className: "ziggy" },
 
-  { name: "CRAX", link: "/brand2", logo: "/assets/brand_logo/Crax.png", className: "crax" },
-  { name: "GYAN", link: "/brand1", logo: "/assets/brand_logo/Gyan.png", className: "gyan" },
+  // { name: "CRAX", link: "/brand2", logo: "/assets/brand_logo/Crax.png", className: "crax" },
+  // { name: "GYAN", link: "/brand1", logo: "/assets/brand_logo/Gyan.png", className: "gyan" },
   
 ];
 

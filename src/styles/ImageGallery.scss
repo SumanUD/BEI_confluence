@@ -14,7 +14,7 @@
 
       .img-fluid {
         height: 400px;
-        object-fit: cover;
+        object-fit: contain;
 
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 

@@ -145,7 +145,7 @@ header {
 
     &:focus,
     &:hover {
-      color: lighten(#bbda0a, 15%);
+      // color: lighten(#bbda0a, 15%);
       text-decoration: none;
       transform: scale(1.5) translateX(-10px);
       text-shadow: 0px 4px 12px rgba(43, 49, 69, 0.6);

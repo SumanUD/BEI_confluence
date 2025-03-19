@@ -9,6 +9,17 @@
     height: 100%;
     overflow-x: hidden; 
   }
+  @font-face {
+    font-family: 'Futura';
+    src: url('/public/assets/font/futura/futur.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  // Apply globally to all elements
+  * {
+    font-family: 'Futura', sans-serif;
+  }
   
 
   //== Variables

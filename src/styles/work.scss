@@ -23,7 +23,8 @@
     li {
       position: relative;
       padding: 10px;
-      font-size: 25px;
+      font-size: 43px;
+      
 
       a {
         text-decoration: none;
@@ -87,7 +88,10 @@
       }
       
 
-      /* Show logo on hover */
+      &:hover {
+        scale: 1.2;
+      }
+
       &:hover .brand-logo {
         opacity: 1;
         transform: translateY(-10px);
@@ -175,3 +179,6 @@
     --rotate-y: -5deg;
   }
 }
+// .work .brands li a:hover {
+//   transform: scale(1.2);
+// }
