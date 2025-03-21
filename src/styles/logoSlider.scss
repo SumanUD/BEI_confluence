@@ -1,0 +1,65 @@
+.slider {
+    padding-block: 12px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent 5%, #000 50%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to right, transparent 5%, #000 50%, transparent 95%);
+  
+    &[data-reverse="true"] .list {
+      animation: reverseScroll 20s linear infinite;
+    }
+  
+    &:hover .item img {
+      filter: grayscale(1);
+    }
+  
+    .item:hover img {
+      filter: grayscale(0);
+    }
+  }
+  
+  .list {
+    display: flex;
+    width: calc(var(--width) * var(--imageQuantity) * 2);
+    gap: 0; // Remove potential spacing issues
+    animation: autoScroll 20s linear infinite;
+  
+    &:hover {
+      animation-play-state: paused !important;
+    }
+  }
+  
+  .item {
+    width: var(--width);
+    height: var(--height);
+    flex-shrink: 0;
+  
+    img {
+      width: 200px;
+    //   height: 100%;
+      object-fit: contain;  // Ensures images fit properly without distortion
+      transition: filter 0.5s ease-in-out;
+    }
+  }
+  
+  @keyframes autoScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-1 * var(--width) * var(--imageQuantity)));
+    }
+  }
+  
+  @keyframes reverseScroll {
+    0% {
+      transform: translateX(calc(-1 * var(--width) * var(--imageQuantity)));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  

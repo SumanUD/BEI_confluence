@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import LogoSlider from "../components/logoSlider";
 
 const imageList = [
   { id: 1, src: "/assets/8PM/1999 Poster (Final)-01.jpg", alt: "Atta Burger Bun 200g (Front)" },
@@ -180,7 +181,9 @@ const Brand = () => {
 
       <div className="brand-logo-slider">
         <h2>BRAND BANNERS</h2>
-        <SliderComponent images={brandLogos} />
+        {/* <SliderComponent images={brandLogos} /> */}
+        <LogoSlider images={brandLogos} />
+
       </div>
 
       <Footer />

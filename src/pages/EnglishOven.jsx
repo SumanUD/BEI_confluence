@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import $ from "jquery";
 // import "magnific-popup/dist/jquery.magnific-popup.min.css";
 import "magnific-popup";
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/english_oven.scss";
 import VideoGallery from "../components/VideoGallery";
 import ImageGallery from "../components/Gallery";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const imageList = [
     { id: 1, src: "/assets/englishOven/Atta Burger Bun 200g (Front).png", alt: "Atta Burger Bun 200g (Front)" },
@@ -47,6 +49,38 @@ const videoList = [
       },
   ];
 
+  const bannerImages = [
+    "/assets/englishOven/banner1.png",
+    "/assets/englishOven/banner2.png",
+
+  ];
+
+  const BrandSlider = ({ images }) => {
+    const sliderSettings = {
+      dots: true,
+      infinite: true,
+      speed: 800,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      // arrows: false,
+      arrows: true,
+    };
+  
+    return (
+      <Slider {...sliderSettings} className="brand-slider">
+        {images.map((image, index) => (
+          <div key={index} className="slide">
+            <div className="slide-image" style={{ backgroundImage: `url(${image})` }}></div>
+          </div>
+        ))}
+      </Slider>
+    );
+  };
+  
+
+
 const EnglishOven = () => {
   useEffect(() => {
     $(".video-gallery").magnificPopup({
@@ -61,7 +95,9 @@ const EnglishOven = () => {
   return (
     <div className="englishOven">
       <Navbar />
-      <div className="brand"></div>
+      <BrandSlider images={bannerImages} />
+
+      {/* <div className="brand"></div> */}
       <div className="below_banner">
       <VideoGallery videos={videoList} />
 

@@ -146,8 +146,8 @@ header {
     padding: 0.7em 0.5em 0.7em 1.4em;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    font-weight: bold;
-    color: white;
+    // font-weight: bold;
+    color: #afa9a6;
     -webkit-text-stroke: 0.5px black;
 
     &:focus,
@@ -187,7 +187,7 @@ header {
   background: $color-white;
   border-radius: $nav-toggle-size / 10;
   display: inline-block;
-  height: $nav-toggle-size / 10;
+  height: 0.13rem;
   width: $nav-toggle-size;
   transition: background 0.3s ease;
 
@@ -213,11 +213,13 @@ header {
     content: "";
     left: 0;
     position: absolute;
+
   }
 
   &:after {
     top: $nav-toggle-size / 4;
     border: 0.1px solid black;
+    
   }
 
   &:before {
@@ -234,6 +236,8 @@ header {
     &:before {
       transform-origin: 50% 50% 0;
       transition: top 0.3s 0.4s ease, transform 0.3s ease;
+  width: 19px;
+
     }
   }
 
@@ -279,16 +283,16 @@ header {
   }
 
   &:after {
-    top: $nav-toggle-size / 6;  // Reduced spacing
+    top: $nav-toggle-size / 6;
     border: 0.1px solid black;
   }
 
   &:before {
-    top: -$nav-toggle-size / 6;  // Reduced spacing
+    top: -$nav-toggle-size / 6;  
     border: 0.1px solid black;
   }
 }
 .lines {
-  width: 1.45rem !important;
-  height: 0.15rem;
+  width: 18px;
+  height: 0.015rem;
 }

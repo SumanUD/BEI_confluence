@@ -107,6 +107,7 @@
       /* Arrow symbol */
       font-size: 14px;
       transition: transform 0.3s ease-in-out;
+      width: 27px;
     }
 
     &:hover {
@@ -148,12 +149,12 @@ $nav-toggle-size: 1.5rem; // Reduce size
   padding: 0.4rem 1rem;
 }
 
-.lines {
-  width: $nav-toggle-size; 
-  height: $nav-toggle-size / 10; 
+// .lines {
+//   width: $nav-toggle-size; 
+//   height: $nav-toggle-size / 10; 
 
-  &:before,
-  &:after {
-    width: $nav-toggle-size;
-  }
-}
+//   &:before,
+//   &:after {
+//     width: $nav-toggle-size;
+//   }
+// }

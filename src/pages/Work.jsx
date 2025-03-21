@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../styles/work.scss";
 
+
 // 8PM PREMIUM BLACK
 // ENGLISH OVEN
 // TOTAL ENERGIES
@@ -51,6 +52,8 @@ const Work = () => {
               <div className="brand-logo" style={{ backgroundImage: `url(${brand.logo})` }} />
             </motion.li>
           ))}
+
+
         </motion.ul>
       </div>
     </>
