@@ -1,3 +1,10 @@
+@import url('https://fonts.cdnfonts.com/css/futura');
+
+* {
+  font-family: 'Futura', sans-serif;
+}
+
+
 .brand2 {
 
   ::-webkit-scrollbar {
@@ -132,5 +139,21 @@
     .video-gallery .gallery-item {
       height: 180px;
     }
+  }
+}
+
+$nav-toggle-size: 1.5rem; // Reduce size
+
+.button-lines {
+  padding: 0.4rem 1rem;
+}
+
+.lines {
+  width: $nav-toggle-size; 
+  height: $nav-toggle-size / 10; 
+
+  &:before,
+  &:after {
+    width: $nav-toggle-size;
   }
 }

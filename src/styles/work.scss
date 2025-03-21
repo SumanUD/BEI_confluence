@@ -1,3 +1,10 @@
+@import url('https://fonts.cdnfonts.com/css/futura');
+
+* {
+  font-family: 'Futura', sans-serif;
+}
+
+
 .work {
   background-image: url("/assets/work_banner.jpg");
   background-size: cover;
@@ -19,11 +26,12 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 373px;
 
     li {
       position: relative;
       padding: 10px;
-      font-size: 43px;
+      font-size: 39px;
       
 
       a {
@@ -182,3 +190,62 @@
 // .work .brands li a:hover {
 //   transform: scale(1.2);
 // }
+
+
+.brands {
+  position: absolute;
+  top: 10vh;
+  right: 10vw;
+  height: 80vh;
+  width: 300px; // Adjust as needed
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  overflow-y: auto; // Enable scrolling
+  
+  /* Hide scrollbar for Chrome, Safari, and Edge */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+
+  li {
+    position: relative;
+    padding: 10px;
+    font-size: 30px; // Adjust size if needed
+    width: 100%;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.3s ease-in-out;
+
+      // &:hover {
+      //   transform: scale(1.1);
+      // }
+    }
+
+    .brand-logo {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+  }
+}
+
+
+.brands {
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  padding-right: 40px;
+}

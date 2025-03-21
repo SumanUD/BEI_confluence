@@ -15,7 +15,7 @@ import "../styles/work.scss";
 
 
 const brands = [
-  { name: "8PM Premium Black", link: "/brand1", logo: "/assets/brand_logo/8PM.png", className: "eight-pm" },
+  { name: "8PM  ", link: "/brand1", logo: "/assets/brand_logo/8PM.png", className: "eight-pm" },
   { name: "English Oven", link: "/english-oven", logo: "/assets/brand_logo/EnglishOven.png", className: "english-oven" },
   { name: "Total Energies", link: "/english-oven", logo: "/assets/brand_logo/Total_LOGO.png", className: "total-energies" },
   { name: "Biryani By Kilo", link: "/english-oven", logo: "/assets/brand_logo/BBK.png", className: "bbk" },

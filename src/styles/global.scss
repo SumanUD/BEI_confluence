@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  @import url('https://fonts.cdnfonts.com/css/futura');
+
+* {
+  font-family: 'Futura', sans-serif;
+}
+
   
   html, body {
     width: 100%;

@@ -1,5 +1,12 @@
 //== Variables
 //
+
+@import url('https://fonts.cdnfonts.com/css/futura');
+
+* {
+  font-family: 'Futura', sans-serif;
+}
+
 $color-white: #ffffff;
 $color-white-darker: darken($color-white, 10%);
 $color-white-darken: darken($color-white, 15%);
@@ -257,4 +264,31 @@ header {
     float: left;
     width: 50px;
 }
+}
+
+.lines {
+  @include button-lines;
+  position: relative;
+
+  &:after,
+  &:before {
+    @include button-lines;
+    content: "";
+    left: 0;
+    position: absolute;
+  }
+
+  &:after {
+    top: $nav-toggle-size / 6;  // Reduced spacing
+    border: 0.1px solid black;
+  }
+
+  &:before {
+    top: -$nav-toggle-size / 6;  // Reduced spacing
+    border: 0.1px solid black;
+  }
+}
+.lines {
+  width: 1.45rem !important;
+  height: 0.15rem;
 }

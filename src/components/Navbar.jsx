@@ -9,6 +9,16 @@ const Navbar = () => {
   const location = useLocation(); // Get current URL
 
   useEffect(() => {
+    const closeNav = () => {
+      document.body.classList.remove("nav-visible");
+    };
+  
+    // Close menu when switching tabs
+    closeNav();
+  }, [location.pathname]); // Runs every time the route changes
+  
+
+  useEffect(() => {
     const navButton = document.querySelector(".nav-button");
 
     if (navButton) {

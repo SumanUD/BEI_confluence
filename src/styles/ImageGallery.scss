@@ -12,8 +12,39 @@
         align-items: center;
       }
 
-      .img-fluid {
-        height: 400px;
+      .img-fluid {.img-fluid {
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
+      
+        &:hover {
+          transform: scale(1.08) rotate(2deg);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          filter: brightness(1.15) contrast(1.05) saturate(1.1);
+        }
+      }
+      
+      /* Alternative hover effect - Soft Glow with Color Change */
+      .img-fluid:hover {
+        transform: scale(1.1) rotate(-1deg);
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5); /* Pinkish glow */
+        filter: brightness(1.2) hue-rotate(10deg);
+      }
+      
+      /* Wiggle Animation on Hover */
+      @keyframes wiggle {
+        0% { transform: scale(1) rotate(0deg); }
+        25% { transform: scale(1.02) rotate(1deg); }
+        50% { transform: scale(1.04) rotate(-1deg); }
+        75% { transform: scale(1.02) rotate(1deg); }
+        100% { transform: scale(1) rotate(0deg); }
+      }
+      
+      .img-fluid:hover {
+        animation: wiggle 0.5s ease-in-out;
+      }
+      
+        height: auto;
         object-fit: contain;
 
         transition: transform 0.3s ease, box-shadow 0.3s ease;
