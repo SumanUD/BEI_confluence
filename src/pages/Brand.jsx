@@ -13,22 +13,47 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import LogoSlider from "../components/logoSlider";
+import VideoGallery from "../components/VideoGallery";
+
 
 const imageList = [
+  { id: 11, src: "/assets/8PM/Radico _ Airforce Day Ad _ 33x47 _ CM_1.jpg", alt: "Whole Wheat (Front)" },
   { id: 1, src: "/assets/8PM/1999 Poster (Final)-01.jpg", alt: "Atta Burger Bun 200g (Front)" },
   { id: 2, src: "/assets/8PM/Award Poster - Final-01.jpg", alt: "Chocochip Muffin" },
   { id: 4, src: "/assets/8PM/IPL Sunboard 18x12 inch-1_3.jpg", alt: "Fruit Bun_1" },
-  { id: 3, src: "/assets/8PM/Indian Navy ad_Final.jpg", alt: "Chocolate Lava Cake" },
-  { id: 5, src: "/assets/8PM/Jaisalmer Menu_2x3.jpg", alt: "Hazelnut Skillet Cookie" },
-  { id: 6, src: "/assets/8PM/Jaisalmer_A4 (Indian Craft Gin) with  Index No. 79105.jpg", alt: "Jumbo burger bun fop" },
+
+  { id: 1, src: "/assets/8PM/1999 Poster (Final)-01.jpg", alt: "Atta Burger Bun 200g (Front)" },
+  { id: 2, src: "/assets/8PM/Award Poster - Final-01.jpg", alt: "Chocochip Muffin" },
+  { id: 4, src: "/assets/8PM/IPL Sunboard 18x12 inch-1_3.jpg", alt: "Fruit Bun_1" },
+  
   { id: 7, src: "/assets/8PM/Outdoor Route - 01 (horizontal)_2x1.jpg", alt: "Kulcha Bread" },
   { id: 8, src: "/assets/8PM/Outdoor Route - 01 (Vertical)_1x1.jpg", alt: "Pav 12 Pcs (Front)" },
   { id: 9, src: "/assets/8PM/Outdoor Route - 03_2x1 in ratio.jpg", alt: "Vanilla Chocochip Muffin" },
   { id: 10, src: "/assets/8PM/Pocket Pack New Hipster Pack (UP).jpg", alt: "White Bread (350) Front & Back" },
-  { id: 11, src: "/assets/8PM/Radico _ Airforce Day Ad _ 33x47 _ CM_1.jpg", alt: "Whole Wheat (Front)" },
   { id: 12, src: "/assets/8PM/Untitled-1.png", alt: "Zero Maida (Multigrain Bread)-07" },
-  { id: 13, src: "/assets/8PM/Untitled-2.png", alt: "Zero Maida Pav_1" },
+  // { id: 13, src: "/assets/8PM/Untitled-2.png", alt: "Zero Maida Pav_1" },
 
+];
+
+const videoListGallery = [
+  {
+    title: "Apna Apna Cremica",
+    description: "Apna Apna Cremica description",
+    image: "/assets/englishOven/White Bread (350) Front & Back.jpg",
+    videoUrl: "https://www.youtube.com/embed/qh8K6eAqN64?si=Dvcjad_MyM8VXJUe",
+  },
+  {
+    title: "English Over Bread",
+    description: "English Over Bread description",
+    image: "/assets/englishOven/Zero Maida Pav_1.jpg",
+    videoUrl: "https://www.youtube.com/embed/qh8K6eAqN64?si=Dvcjad_MyM8VXJUe",
+  },
+  {
+    title: "English Over Burger",
+    description: "English over burger description",
+    image: "/assets/englishOven/Fruit Bun_1.jpg",
+    videoUrl: "https://www.youtube.com/embed/qh8K6eAqN64?si=Dvcjad_MyM8VXJUe",
+  },
 ];
 
 const bannerImages = [
@@ -178,14 +203,18 @@ const Brand = () => {
       </div>
 
       <ImageGallery images={imageList} />
+      {/* <VideoGallery videos={videoListGallery} /> */}
+
 
       <div className="brand-logo-slider">
         <h2>BRAND BANNERS</h2>
-        {/* <SliderComponent images={brandLogos} /> */}
-        <LogoSlider images={brandLogos} />
-
+        <LogoSlider 
+          images={brandLogos} 
+          width={200} 
+          height={270}
+          imageQuantity={brandLogos.length}
+        />
       </div>
-
       <Footer />
     </div>
   );

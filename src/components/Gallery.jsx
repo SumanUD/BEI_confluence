@@ -18,7 +18,7 @@ const ImageGallery = ({ images = [] }) => {
       <div className="container">
         <div className="row">
           {images.map((image, index) => (
-            <div key={image.id || index} className="col-md-4 mb-3">
+            <div key={image.id || index} className="col-md-3 mb-3">
               <img
                 src={image.src}
                 className="img-fluid rounded"
