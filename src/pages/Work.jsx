@@ -23,7 +23,7 @@ const brands = [
   { name: "Insecticedes India", link: "/brand1", logo: "/assets/brand_logo/IIL.png", className: "iil" },
   { name: "Mederma", link: "/english-oven", logo: "/assets/brand_logo/MEDERMA.png", className: "mederma" },
   { name: "Apollo", link: "/english-oven", logo: "/assets/brand_logo/Apollo_Copy.png", className: "apollo" },
-  { name: "Ziggy", link: "/english-oven", logo: "/assets/brand_logo/Ziggy.png", className: "ziggy" },
+  // { name: "Ziggy", link: "/english-oven", logo: "/assets/brand_logo/Ziggy.png", className: "ziggy" },
 
   // { name: "CRAX", link: "/brand2", logo: "/assets/brand_logo/Crax.png", className: "crax" },
   // { name: "GYAN", link: "/brand1", logo: "/assets/brand_logo/Gyan.png", className: "gyan" },
