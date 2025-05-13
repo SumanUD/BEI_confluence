@@ -23,7 +23,7 @@ const Home = () => {
       playsInline
       className="background-video"
     >
-      <source src="/assets/home/banner_video.mp4" type="video/mp4" />
+      <source src="/assets/home/homebannervideo.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
