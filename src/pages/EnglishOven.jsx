@@ -29,33 +29,10 @@ const brandLogos = [
 ];
 
 const imageList = [
-  // { id: 1, src: "/assets/englishOven/Atta Burger Bun 200g (Front).png", alt: "Atta Burger Bun 200g (Front)" },
-  // { id: 2, src: "/assets/englishOven/Chocochip Muffin.jpg", alt: "Chocochip Muffin" },
-  // { id: 3, src: "/assets/englishOven/Chocolate Lava Cake.jpg", alt: "Chocolate Lava Cake" },
-  // { id: 4, src: "/assets/englishOven/Fruit Bun_1.jpg", alt: "Fruit Bun_1" },
-  // { id: 5, src: "/assets/englishOven/Hazelnut Skillet Cookie.jpg", alt: "Hazelnut Skillet Cookie" },
-  // { id: 6, src: "/assets/englishOven/Jumbo burger bun fop.jpeg", alt: "Jumbo burger bun fop" },
-  // { id: 7, src: "/assets/englishOven/Kulcha Bread.jpg", alt: "Kulcha Bread" },
-  // { id: 8, src: "/assets/englishOven/Pav 12 Pcs (Front).jpg", alt: "Pav 12 Pcs (Front)" },
-  // { id: 9, src: "/assets/englishOven/Vanilla Chocochip Muffin.jpg", alt: "Vanilla Chocochip Muffin" },
-  // { id: 10, src: "/assets/englishOven/White Bread (350) Front & Back.jpg", alt: "White Bread (350) Front & Back" },
-  // { id: 11, src: "/assets/englishOven/Whole Wheat (Front).jpg", alt: "Whole Wheat (Front)" },
-  // { id: 12, src: "/assets/englishOven/Zero Maida (Multigrain Bread)-07.jpg", alt: "Zero Maida (Multigrain Bread)-07" },
-  // { id: 13, src: "/assets/englishOven/Zero Maida Pav_1.jpg", alt: "Zero Maida Pav_1" },
-  // { id: 14, src: "/assets/englishOven/Zero_ Maida_1.jpg", alt: "Zero_ Maida_1.jpgZero_ Maida_1" },
-
-
   { id: 5, src: "/assets/englishOven/Digestive.jpg", alt: "Atta Burger Bun 200g (Front)" },
   { id: 6, src: "/assets/englishOven/Cremica ad (Kareena)_TOI-02.jpg", alt: "Atta Burger Bun 200g (Front)" },
   { id: 3, src: "/assets/englishOven/Gourmet_Leaftet.jpg", alt: "Atta Burger Bun 200g (Front)" },
   { id: 7, src: "/assets/englishOven/EO Full Page AD with Kareena Kapoor.jpg", alt: "Atta Burger Bun 200g (Front)" },
-
-  // { id: 4, src: "/assets/englishOven/English Oven Vehicle Branding_65x34.5-1_1.jpg", alt: "Atta Burger Bun 200g (Front)" },
-
-  // { id: 1, src: "/assets/englishOven/Bus Shelter (Zero Maida).jpg", alt: "Atta Burger Bun 200g (Front)" },
-  // { id: 2, src: "/assets/englishOven/Surat Kiosk Final Branding Web 1x1_1.jpg", alt: "Atta Burger Bun 200g (Front)" },
-
-
 ];
 
 const videoListGallery = [
@@ -130,6 +107,7 @@ const videosettings = {
   slidesToScroll: 1,
   lazyLoad: "progressive",
 };
+
 
 
 
@@ -208,16 +186,15 @@ Today, Mrs. Bector’s Food Specialities Limited, backed by the inspiration of i
         </div>
       </div>
 
-      <div className="button_container">
+      {/* <div className="button_container">
         <button className="brand_button" type="submit">Learn More</button>
-      </div>
+      </div> */}
 
       <ImageGallery images={imageList} />
       <VideoGallery videos={videoListGallery} />
 
 
       <div className="brand-logo-slider">
-        <h2>BRAND BANNERS</h2>
         <LogoSlider 
           images={brandLogos} 
           width={200} 

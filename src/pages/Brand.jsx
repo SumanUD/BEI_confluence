@@ -57,6 +57,8 @@ const videoListGallery = [
 ];
 
 const bannerImages = [
+  "/assets/8PM/banner1.jpg",
+
   "/assets/brand_banners/jaisalmer.png",
   "/assets/brand_banners/8PM_banner2.png",
 
@@ -198,16 +200,12 @@ const Brand = () => {
         </div>
       </div>
 
-      <div className="button_container">
-        <button className="brand_button" type="submit">Learn More</button>
-      </div>
 
       <ImageGallery images={imageList} />
       {/* <VideoGallery videos={videoListGallery} /> */}
 
 
       <div className="brand-logo-slider">
-        <h2>BRAND BANNERS</h2>
         <LogoSlider 
           images={brandLogos} 
           width={200} 

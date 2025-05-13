@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AboutGallery from "../components/AboutGallery";
 import "../styles/about.scss";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
@@ -8,20 +9,22 @@ import { CiMail } from "react-icons/ci";
 import tapasGupta from "/assets/about/tapas_image.png";
 import abhishekGupta from "/assets/about/abhishek_image.png";
 import shahidHussain from "/assets/about/shahid_image.png";
+import rumaGupta from "/assets/about/ruma_gupta.png";
+
 import about_us from "/assets/about/about_us.png";
 import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const tapasGuptaParagraphs = [
-  " A seasoned marketing and advertising maven, Tapas Gupta brings over 35 years of rich experience, spanning Indian and international markets, to the table.His illustrious career includes a long - standing association with McCann - Erickson Worldwide—one of the globe’s leading advertising agencynetworks.",
-  "From 1987 to 1995, Tapas Gupta spearheaded McCann Erickson’s offices in Delhi, Kolkata, and Kathmandu as Senior Vice President and Director, simultaneously managing the Bangalore office from 1991 to 1993. His expertise extended beyond borders as he collaborated with McCann offices inHong Kong, Manila, and Bangkok, coordinating campaigns for global giants Coca - Cola and Nestlé across the APAC region.",
-  "Tapas Gupta played a pivotal role in Coca - Cola’s iconic brand launch in India in 1994 - 95, a campaign he championed and nurtured for over two years.Recognized for his visionary leadership, McCann Erickson appointed him President & CEO of its new joint venture agency, PSL - Erickson, in 1996—a role he held until 1998. In 1999, Tapas Gupta took the entrepreneurial plunge, founding Confluence Communication, where his passion for impactful storytelling and innovative strategies continues to drive success",
+    " A seasoned marketing and advertising maven, Tapas Gupta brings over 35 years of rich experience, spanning Indian and international markets, to the table.His illustrious career includes a long - standing association with McCann - Erickson Worldwide—one of the globe’s leading advertising agencynetworks.",
+    "From 1987 to 1995, Tapas Gupta spearheaded McCann Erickson’s offices in Delhi, Kolkata, and Kathmandu as Senior Vice President and Director, simultaneously managing the Bangalore office from 1991 to 1993. His expertise extended beyond borders as he collaborated with McCann offices inHong Kong, Manila, and Bangkok, coordinating campaigns for global giants Coca - Cola and Nestlé across the APAC region.",
+    "Tapas Gupta played a pivotal role in Coca - Cola’s iconic brand launch in India in 1994 - 95, a campaign he championed and nurtured for over two years.Recognized for his visionary leadership, McCann Erickson appointed him President & CEO of its new joint venture agency, PSL - Erickson, in 1996—a role he held until 1998. In 1999, Tapas Gupta took the entrepreneurial plunge, founding Confluence Communication, where his passion for impactful storytelling and innovative strategies continues to drive success",
   ];
   const abhishekGuptaParagraphs = [
     "With over 18 years of experience in the dynamic world of advertising, Abhishek has honed his craft at some of the top 5 agencies in India, driving impactful campaigns for iconic brands.",
- "At HAVAS WORLDWIDE (formerly EURO RSCG), he orchestrated communication strategies for Max New York Life Insurance, Makemytrip.com, and Indiatimes.com, leaving an indelible mark on the digital and financial sectors. Moving to Publicis Worldwide, Abhishek championed Nestlé India’s dairy portfolio, managing beloved brands like Nestlé a+ Milk, Everyday, and Milkmaid, as well as McVitie’s Biscuits under the globally renowned United Biscuits group.",
- "His tenure at O&M, Delhi, as AVP saw him steering flagship accounts for The Coca-Cola Company, including Sprite and Kinley, alongside the diverse Philips portfolio spanning lighting and consumer durables.",
- "Currently, as Joint Managing Director at BEI Confluence, Abhishek is the driving force behind Client Services. As the agency's brand custodian, he leads the servicing teams, ensuring unparalleled client engagement and delivering creative solutions that resonate in the marketplace.",
+    "At HAVAS WORLDWIDE (formerly EURO RSCG), he orchestrated communication strategies for Max New York Life Insurance, Makemytrip.com, and Indiatimes.com, leaving an indelible mark on the digital and financial sectors. Moving to Publicis Worldwide, Abhishek championed Nestlé India’s dairy portfolio, managing beloved brands like Nestlé a+ Milk, Everyday, and Milkmaid, as well as McVitie’s Biscuits under the globally renowned United Biscuits group.",
+    "His tenure at O&M, Delhi, as AVP saw him steering flagship accounts for The Coca-Cola Company, including Sprite and Kinley, alongside the diverse Philips portfolio spanning lighting and consumer durables.",
+    "Currently, as Joint Managing Director at BEI Confluence, Abhishek is the driving force behind Client Services. As the agency's brand custodian, he leads the servicing teams, ensuring unparalleled client engagement and delivering creative solutions that resonate in the marketplace.",
   ];
   const shahidHussainParagraphs = [
     "With over 18 years of shaping brands and crafting compelling creative strategies, Shahid has excelled on both sides of the spectrum—agency and brand. Now at BEI, he’s driving the agency’s vision to new heights with his unique blend of creativity and strategic insight.",
@@ -29,9 +32,17 @@ const AboutUs = () => {
     "His global journey includes transformative stints with BOTIM in Dubai and Polygon, a trailblazing Web3 company also based in Dubai, where he blended innovation with creativity in the tech-forward space.",
   ];
 
+  const rumpaGuptaParagraph = [
+    "Rumpa started her career in the development sector in India and then moved to Singapore. She has worked extensively on advocacy and communications and has expertise in developing programmes for Non-Profit Organisations on issues related to child protection, youth work and community building.",
+    "She has been working in advertising and Communications for the last 6 years and leading flagship brands like Insecticides (India) Ltd, Jindal Stainless, Total Energies, JK Paper, as their communications partner.",
+    "Rumpa is a graduate in Psychology and holds Master's in Journalism, having deep understanding of human insights and purchase behaviour. Her ability and skill to understand what people want and need help in creating effective campaigns by identifying patterns in consumer behavior and attitudes."
+  ];
+
   const [visibleCountTapas, setVisibleCountTapas] = useState(1);
   const [visibleCountAbhishek, setVisibleCountAbhishek] = useState(1);
   const [visibleCountShahid, setVisibleCountShahid] = useState(1);
+  const [visibleCountRuma, setVisibleCountRuma] = useState(1);
+
 
 
   return (
@@ -40,9 +51,20 @@ const AboutUs = () => {
       <div className="about-container">
         <div className="aboutUs_banner">
           <div className="video-container">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="background-video"
+            >
+              <source src="/assets/home/banner_video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
           </div>
         </div>
+
 
         <div className="about-grid-section">
           <div className="text-content">
@@ -73,13 +95,11 @@ const AboutUs = () => {
             <div className="profile-image">
               <img src={tapasGupta} alt="Tapas Gupta" />
             </div>
-
             <div className="social-icons">
               <Link to="mailto:tapas@confluencecommunication.com"><CiMail /></Link>
               <Link to="https://www.linkedin.com/in/tapas-gupta-b70bb298/"><FaLinkedin /></Link>
             </div>
           </div>
-
           <div className="bio-section">
             <div className="frame">
               <div className="paper"></div>
@@ -88,15 +108,22 @@ const AboutUs = () => {
               <div className="paper">
                 <div className="bio-box">
                   <div className="border-design">
-                    {tapasGuptaParagraphs.slice(0, visibleCountTapas).map((para, index) => (
-                      <p key={index}>{para}</p>
-                    ))}
-                    {visibleCountTapas < tapasGuptaParagraphs.length && (
-                      <button onClick={() => setVisibleCountTapas(visibleCountTapas + 1)} className="read-more">Read More</button>
-                    )}
-                    {visibleCountTapas > 1 && (
-                      <button onClick={() => setVisibleCountTapas(1)} className="read-less">Read Less</button>
-                    )}
+                    {tapasGuptaParagraphs.slice(0, visibleCountTapas).map((para, index) => {
+                      const isLastVisible = index === visibleCountTapas - 1;
+                      const hasMore = visibleCountTapas < tapasGuptaParagraphs.length;
+                      const hasLess = visibleCountTapas > 1;
+                      return (
+                        <p key={index}>
+                          {para}
+                          {isLastVisible && hasMore && (
+                            <span className="read-toggle" onClick={() => setVisibleCountTapas(visibleCountTapas + 1)}> ...Read more</span>
+                          )}
+                          {isLastVisible && !hasMore && hasLess && (
+                            <span className="read-toggle" onClick={() => setVisibleCountTapas(1)}> close</span>
+                          )}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -104,7 +131,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <div className="abhishek_gupta">
+ <div className="abhishek_gupta">
 
           <div className="bio-section">
             <div className="frame">
@@ -114,45 +141,49 @@ const AboutUs = () => {
               <div className="paper">
                 <div className="bio-box">
                   <div className="border-design">
-                    {abhishekGuptaParagraphs.slice(0, visibleCountAbhishek).map((para, index) => (
-                      <p key={index}>{para}</p>
-                    ))}
-                    {visibleCountAbhishek < abhishekGuptaParagraphs.length && (
-                      <button onClick={() => setVisibleCountAbhishek(visibleCountAbhishek + 1)} className="read-more">Read More</button>
-                    )}
-                    {visibleCountAbhishek > 1 && (
-                      <button onClick={() => setVisibleCountAbhishek(1)} className="read-less">Read Less</button>
-                    )}
+                    {abhishekGuptaParagraphs.slice(0, visibleCountAbhishek).map((para, index) => {
+                      const isLastVisible = index === visibleCountAbhishek - 1;
+                      const hasMore = visibleCountAbhishek < abhishekGuptaParagraphs.length;
+                      const hasLess = visibleCountAbhishek > 1;
+                      return (
+                        <p key={index}>
+                          {para}
+                          {isLastVisible && hasMore && (
+                            <span className="read-toggle" onClick={() => setVisibleCountAbhishek(visibleCountAbhishek + 1)}> ...Read more</span>
+                          )}
+                          {isLastVisible && !hasMore && hasLess && (
+                            <span className="read-toggle" onClick={() => setVisibleCountAbhishek(1)}> close</span>
+                          )}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="profile-section">
+
+                    <div className="profile-section">
             <div className="profile-image">
               <img src={abhishekGupta} alt="Abhishek Gupta" />
             </div>
-
             <div className="social-icons">
               <Link to="mailto:abhishek@confluencecommunication.com"><CiMail /></Link>
               <Link to="https://www.linkedin.com/in/abhishek-gupta-b340995/"><FaLinkedin /></Link>
             </div>
           </div>
-
         </div>
 
-        <div className="abhishek_gupta">
+  <div className="abhishek_gupta">
           <div className="profile-section">
             <div className="profile-image">
-              <img src={abhishekGupta} alt="Abhishek Gupta" />
+              <img src={rumaGupta} alt="Ruma Gupta" />
             </div>
-
             <div className="social-icons">
-            <Link to="mailto:rumpa@confluencecommunication.com"><CiMail /></Link>
-            <Link to="https://www.linkedin.com/in/rumpa-gupta-a64424312/"><FaLinkedin /></Link>
+              <Link to="mailto:rumpa@confluencecommunication.com"><CiMail /></Link>
+              <Link to="https://www.linkedin.com/in/rumpa-gupta-a64424312/"><FaLinkedin /></Link>
             </div>
           </div>
-
           <div className="bio-section">
             <div className="frame">
               <div className="paper"></div>
@@ -161,27 +192,30 @@ const AboutUs = () => {
               <div className="paper">
                 <div className="bio-box">
                   <div className="border-design">
-                    {abhishekGuptaParagraphs.slice(0, visibleCountAbhishek).map((para, index) => (
-                      <p key={index}>{para}</p>
-                    ))}
-                    {visibleCountAbhishek < abhishekGuptaParagraphs.length && (
-                      <button onClick={() => setVisibleCountAbhishek(visibleCountAbhishek + 1)} className="read-more">Read More</button>
-                    )}
-                    {visibleCountAbhishek > 1 && (
-                      <button onClick={() => setVisibleCountAbhishek(1)} className="read-less">Read Less</button>
-                    )}
+                    {rumpaGuptaParagraph.slice(0, visibleCountRuma).map((para, index) => {
+                      const isLastVisible = index === visibleCountRuma - 1;
+                      const hasMore = visibleCountRuma < rumpaGuptaParagraph.length;
+                      const hasLess = visibleCountRuma > 1;
+                      return (
+                        <p key={index}>
+                          {para}
+                          {isLastVisible && hasMore && (
+                            <span className="read-toggle" onClick={() => setVisibleCountRuma(visibleCountRuma + 1)}> ...Read more</span>
+                          )}
+                          {isLastVisible && !hasMore && hasLess && (
+                            <span className="read-toggle" onClick={() => setVisibleCountRuma(1)}> close</span>
+                          )}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
 
-        <div className="tapas_gupta shahid_hussain">
-
-
+  <div className="tapas_gupta shahid_hussain">
           <div className="bio-section">
             <div className="frame">
               <div className="paper"></div>
@@ -190,15 +224,22 @@ const AboutUs = () => {
               <div className="paper">
                 <div className="bio-box">
                   <div className="border-design">
-                    {shahidHussainParagraphs.slice(0, visibleCountShahid).map((para, index) => (
-                      <p key={index}>{para}</p>
-                    ))}
-                    {visibleCountShahid < shahidHussainParagraphs.length && (
-                      <button onClick={() => setVisibleCountShahid(visibleCountShahid + 1)} className="read-more">Read More</button>
-                    )}
-                    {visibleCountShahid > 1 && (
-                      <button onClick={() => setVisibleCountShahid(1)} className="read-less">Read Less</button>
-                    )}
+                    {shahidHussainParagraphs.slice(0, visibleCountShahid).map((para, index) => {
+                      const isLastVisible = index === visibleCountShahid - 1;
+                      const hasMore = visibleCountShahid < shahidHussainParagraphs.length;
+                      const hasLess = visibleCountShahid > 1;
+                      return (
+                        <p key={index}>
+                          {para}
+                          {isLastVisible && hasMore && (
+                            <span className="read-toggle" onClick={() => setVisibleCountShahid(visibleCountShahid + 1)}> ...Read more</span>
+                          )}
+                          {isLastVisible && !hasMore && hasLess && (
+                            <span className="read-toggle" onClick={() => setVisibleCountShahid(1)}> close</span>
+                          )}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -206,15 +247,18 @@ const AboutUs = () => {
           </div>
           <div className="profile-section">
             <div className="profile-image">
-              <img src={shahidHussain} alt="Tapas Gupta" />
+              <img src={shahidHussain} alt="Shahid Hussain" />
             </div>
             <div className="social-icons">
-            <Link to="mailto:shahid@confluencecommunication.com"><CiMail /></Link>
-            <Link to="https://www.linkedin.com/in/shahidh/"><FaLinkedin /></Link>
+              <Link to="mailto:shahid@confluencecommunication.com"><CiMail /></Link>
+              <Link to="https://www.linkedin.com/in/shahidh/"><FaLinkedin /></Link>
             </div>
           </div>
         </div>
 
+<div className="about">
+      <AboutGallery />
+</div>
 
       </div>
       <Footer />

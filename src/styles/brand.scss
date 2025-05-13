@@ -8,6 +8,10 @@
 
 .brand1 {
 
+  header img {
+    display: none;
+}
+
   ::-webkit-scrollbar {
     width: 0;
     /* Hides the scrollbar width */
@@ -111,41 +115,7 @@
     // height: 100vh; /* Full viewport height */
   }
 
-  .brand_button {
-    margin-bottom: 60px;
-    background: linear-gradient(to right, #222, #a39696);
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 30px;
-    /* Fully rounded edges */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
-    /* Soft shadow */
 
-    &::after {
-      content: "▶";
-      /* Arrow symbol */
-      font-size: 14px;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    &:hover {
-      background: linear-gradient(to left, #222, #a39696);
-      /* Slightly lighter on hover */
-      transform: scale(1.05);
-    }
-
-    &:active {
-      transform: scale(0.98);
-    }
-  }
 
 }
 
@@ -175,40 +145,4 @@
   width: 90%;
   margin-left: 5%;
 
-  h2 {
-    padding: 30px;
-    border: 3px solid white;
-    border-left: none;
-    border-right: none;
-    color: #00d4fe;
-    font-size: 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: letter-spacing 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.4s ease-in-out;
-    margin-bottom: 20px;
-
-    &:after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 3px;
-      bottom: 0;
-      left: 50%;
-      background: #fff;
-      transition: width 0.4s ease-in-out, left 0.4s ease-in-out, background 0.4s ease-in-out;
-    }
-
-    &:hover {
-      letter-spacing: 2px;
-      color: #ebe900;
-      border-color: #ebe900; // Transition border color on hover
-
-      &:after {
-        width: 100%;
-        left: 0;
-        background: #ebe900; // Change underline color on hover
-      }
-    }
-  }
 }

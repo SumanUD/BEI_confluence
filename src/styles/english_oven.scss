@@ -8,6 +8,10 @@
 
 .englishOven {
 
+    header img {
+    display: none;
+}
+
   .brandVideo {
     width: 780px;
     height: 500px;
@@ -29,6 +33,55 @@
       display: none;
       /* Ensures scrollbar is hidden */
     }
+
+//     .carousel-control-prev {
+//   left: -15% !important;
+//   background-color: black;
+//   z-index: 1;
+// }
+
+// .carousel-control-next {
+//     right: -15% !important;
+//   background-color: black;
+//   z-index: 1;
+// }
+
+#videoCarousel {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+
+    // Push buttons slightly outside the video area
+    &.carousel-control-prev {
+      left: -50px;
+    }
+
+    &.carousel-control-next {
+      right: -50px;
+    }
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-image: none; // remove default icon
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+
+  .carousel-control-next-icon {
+    transform: scaleX(-1); 
+  }
+}
+
 
     .brand-slider {
       width: 100%;
@@ -130,41 +183,7 @@
       // height: 100vh; /* Full viewport height */
     }
   
-    .brand_button {
-      margin-bottom: 60px;
-      background: linear-gradient(to right, #222, #a39696);
-      color: white;
-      font-size: 16px;
-      font-weight: 500;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      /* Fully rounded edges */
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
-      /* Soft shadow */
-  
-      &::after {
-        content: "▶";
-        /* Arrow symbol */
-        font-size: 14px;
-        transition: transform 0.3s ease-in-out;
-      }
-  
-      &:hover {
-        background: linear-gradient(to left, #222, #a39696);
-        /* Slightly lighter on hover */
-        transform: scale(1.05);
-      }
-  
-      &:active {
-        transform: scale(0.98);
-      }
-    }
+
   
   }
   
@@ -190,45 +209,3 @@
 
   
 
-  .brand-logo-slider {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 50px;
-  
-    h2 {
-      padding: 30px;
-      border: 3px solid white;
-      border-left: none;
-      border-right: none;
-      color: #00d4fe;
-      font-size: 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: letter-spacing 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.4s ease-in-out;
-      margin-bottom: 20px;
-  
-      &:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 3px;
-        bottom: 0;
-        left: 50%;
-        background: #fff;
-        transition: width 0.4s ease-in-out, left 0.4s ease-in-out, background 0.4s ease-in-out;
-      }
-  
-      &:hover {
-        letter-spacing: 2px;
-        color: #ebe900;
-        border-color: #ebe900; // Transition border color on hover
-  
-        &:after {
-          width: 100%;
-          left: 0;
-          background: #ebe900; // Change underline color on hover
-        }
-      }
-    }
-  }

@@ -10,6 +10,9 @@ import Brand from "../pages/Brand";
 import Brand2 from "../pages/Brand2";
 import Brand3 from "../pages/Brand3";
 import EnglishOven from "../pages/EnglishOven";
+import TotalEnergies from "../pages/totalEnergies";
+import Bbk from "../pages/Bbk";
+import Mederma from "../pages/mederma";
 
 const App = () => {
   return (
@@ -25,6 +28,9 @@ const App = () => {
         <Route path="/brand2" element={<Brand2 />} />
         <Route path="/brand3" element={<Brand3 />} />
         <Route path="/english-oven" element={<EnglishOven />} />
+        <Route path="/total-energies" element={<TotalEnergies />} />
+        <Route path="/bbk" element={<Bbk />} />
+        <Route path="/mederma" element={<Mederma />} />
 
 
       </Routes>

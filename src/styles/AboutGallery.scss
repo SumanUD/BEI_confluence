@@ -1,0 +1,12 @@
+.aboutGallery {
+    .page-title {
+        margin: 50px 0;
+    }   
+    .brandsGalleryLogo {
+        img {
+            width: fit-content;
+            height: 350px;
+            mix-blend-mode: multiply; // or darken, lighten, etc.
+        }
+    }
+}

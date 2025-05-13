@@ -16,19 +16,27 @@ import "../styles/work.scss";
 
 
 const brands = [
-  { name: "8PM  ", link: "/brand1", logo: "/assets/brand_logo/8PM.png", className: "eight-pm" },
-  { name: "English Oven", link: "/english-oven", logo: "/assets/brand_logo/EnglishOven.png", className: "english-oven" },
-  { name: "Total Energies", link: "/english-oven", logo: "/assets/brand_logo/Total_LOGO.png", className: "total-energies" },
-  { name: "Biryani By Kilo", link: "/english-oven", logo: "/assets/brand_logo/BBK.png", className: "bbk" },
-  { name: "Insecticedes India", link: "/brand1", logo: "/assets/brand_logo/IIL.png", className: "iil" },
-  { name: "Mederma", link: "/english-oven", logo: "/assets/brand_logo/MEDERMA.png", className: "mederma" },
-  { name: "Apollo", link: "/english-oven", logo: "/assets/brand_logo/Apollo_Copy.png", className: "apollo" },
-  // { name: "Ziggy", link: "/english-oven", logo: "/assets/brand_logo/Ziggy.png", className: "ziggy" },
-
-  // { name: "CRAX", link: "/brand2", logo: "/assets/brand_logo/Crax.png", className: "crax" },
-  // { name: "GYAN", link: "/brand1", logo: "/assets/brand_logo/Gyan.png", className: "gyan" },
-  
+  { name: "8PM", link: "/brand1", logo: "/assets/brand_logo/8PM.png", className: "eight-pm" },
+  { name: "ENGLISH OVEN", link: "/english-oven", logo: "/assets/brand_logo/EnglishOven.png", className: "english-oven" },
+  { name: "TOTAL ENERGIES", link: "/total-energies", logo: "/assets/brand_logo/Total_LOGO.png", className: "total-energies" },
+  { name: "BIRYANI BY KILO", link: "/bbk", logo: "/assets/brand_logo/BBK.png", className: "bbk" },
+  { name: "MEDERMA", link: "/mederma", logo: "/assets/brand_logo/MEDERMA.png", className: "mederma" },
+  { name: "APOLLO DIAGNOSTICS", link: "/apollo", logo: "/assets/brand_logo/Apollo_Copy.png", className: "apollo" },
+  { name: "ZIGGY", link: "/ziggy", logo: "/assets/brand_logo/Ziggy.png", className: "ziggy" },
+  { name: "CRAX", link: "/crax", logo: "/assets/brand_logo/Crax.png", className: "crax" },
+  { name: "GYAN DAIRY", link: "/gyan", logo: "/assets/brand_logo/Gyan.png", className: "gyan" },
+  { name: "WAI WAI", link: "/wai-wai", logo: "/assets/brand_logo/WaiWai.png", className: "wai-wai" },
+  { name: "HARVEST GOLD", link: "/harvest-gold", logo: "/assets/brand_logo/HarvestGold.png", className: "harvest-gold" },
+  { name: "UMANG DAIRY", link: "/umang-dairy", logo: "/assets/brand_logo/UmangDairy.png", className: "umang-dairy" },
+  { name: "SCHMITTEN CHOCOLATES", link: "/schmitten", logo: "/assets/brand_logo/Schmitten.png", className: "schmitten" },
+  { name: "NANDO’S", link: "/nandos", logo: "/assets/brand_logo/Nandos.png", className: "nandos" },
+  { name: "KEROVIT", link: "/kerovit", logo: "/assets/brand_logo/Kerovit.png", className: "kerovit" },
+  { name: "JSL", link: "/jsl", logo: "/assets/brand_logo/JSL.png", className: "jsl" },
+  { name: "ECE (BIRLA GROUP)", link: "/ece", logo: "/assets/brand_logo/ECE.png", className: "ece" },
+  { name: "TRIDENT REALTY", link: "/trident-realty", logo: "/assets/brand_logo/Trident.png", className: "trident" }
 ];
+
+
 
 const listVariants = {
   hidden: { opacity: 0 },

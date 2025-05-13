@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.scss";
-import BEILogo from "/assets/BEI_Logo.png";
-import BEILogogif from "/assets/BEI_logo.gif";
+import BEILogogif from "/assets/BEI_Logo.png";
+
 
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
     const closeNav = () => {
       document.body.classList.remove("nav-visible");
     };
-  
+
     // Close menu when switching tabs
     closeNav();
   }, [location.pathname]); // Runs every time the route changes
