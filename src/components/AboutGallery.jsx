@@ -1,5 +1,5 @@
+import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-// import Lightbox from 'yet-another-react-lightbox';
 import { useState } from 'react';
 
 const images = [
@@ -53,7 +53,12 @@ const Gallery = () => {
         ))}
       </div>
 
-      <Lightbox open={open} close={() => setOpen(false)} slides={images} index={index} />
+      <Lightbox
+  open={open}
+  close={() => setOpen(false)}
+  index={index}
+  slides={images.map((img) => ({ src: img.url }))}
+/>
     </div>
   );
 };
