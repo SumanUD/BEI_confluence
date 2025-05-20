@@ -14,7 +14,7 @@ $header-height: 80px;
 $nav-toggle-size: 20px;
 $nav-toggle-transition-speed: 0.3s;
 $nav-transition-speed: 0.6s;
-$nav-width: 11vw;
+$nav-width: 200px;
 $zindex-header: 500;
 $active-marker-color: #a9a96c; // Active link marker color
 
@@ -77,8 +77,23 @@ header {
   text-transform: uppercase;
 }
 
-.nav-wrapper {
+.nav-visible{
+  .backdrop{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background-color: rgba(225,225,225, .2);
+    backdrop-filter: blur(18px);
+    z-index: 99;
 
+    @media (min-width: 769px){
+      display: none;
+    }
+  }
+}
+
+.nav-wrapper {
   background-color: transparent;
   height: 100%;
   padding-top: $header-height;
@@ -91,10 +106,117 @@ header {
   visibility: hidden;
   width: $nav-width;
 
+  @media (max-width: 768px){
+    width: 305px;
+    background: white;
+  }
+
+  .work-desktop{
+    display: block;
+    @media (max-width: 786px){
+      display: none;
+    }
+  }
+
+  .work-mobile{
+    display: none;
+    p{
+      text-decoration: none;
+      display: block;
+      line-height: 1.4;
+      padding: 0.7em 0.5em 0.7em 1.4em;
+      text-transform: uppercase;
+      transition: all 0.3s ease-in-out;
+      color: #000;
+      -webkit-text-stroke: 0.5px black;    
+      margin: 0;        
+      cursor: pointer;      
+
+      display: flex;
+      column-gap: 8px;
+      align-items: center;           
+      img{
+        height: 13px;
+        width: 13px;               
+        transform: rotate(-45deg);    
+      }
+
+      &:focus,
+      &:hover {        
+        text-decoration: none;
+        transform: scale(1.5) translateX(-10px);
+        text-shadow: 0px 4px 12px rgba(43, 49, 69, 0.6);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    @media (max-width: 786px){
+      display: block;
+    }
+  } 
+
   .nav-visible & {
     transform: translateX(0);
-    visibility: visible;
+    visibility: visible;    
   }
+
+  .work-mobile-contents{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: white;
+    width: 100%;    
+    transition: all .5s ease-in-out;    
+    text-align: center;
+    
+    .heading{
+      margin-top: 12vh;
+      padding:0 25px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid rgba(0,0,0,.2);        
+      img{
+        height: 20px;
+        width: 20px;
+        transform: rotate(-180deg);
+        cursor: pointer;
+      }
+      p{
+        font-style: italic;
+        font-size: 23px;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+    .menu-list{
+      position: absolute;
+      width: 100%;
+      height: 80vh;
+      background: white;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding: 20px 0 45px ;
+      a{
+        text-decoration: none;
+        color: black;
+        padding: 8px 0;
+        display: block;
+        transition: all .5s ease;
+        &:hover{
+          scale: 1.2;
+        }
+      }
+    }
+    &.open{
+      left: 0;
+    }
+
+    @media (min-width: 768px){
+      display: none;
+    }
+  }
+
+
 }
 
 .nav {
@@ -303,7 +425,7 @@ header {
   display: block;
   height: 2px; // Ensure uniform thickness
   // width: $nav-toggle-size;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease;  
 }
 
 .lines {
@@ -332,20 +454,25 @@ header {
   &:before {
     transform-origin: center;
     transition: top 0.3s ease, transform 0.3s 0.3s ease;
-    width: 100%;
+    width: 100%;        
   }
 }
 
 .nav-visible .button-lines-x .lines {
-  background: transparent;
+  background: transparent;  
 
   &:after {
     top: 0;
-    transform: rotate(45deg);
+    transform: rotate(45deg);        
   }
 
   &:before {
     top: 0;
-    transform: rotate(-45deg);
+    transform: rotate(-45deg);    
+  }
+  @media (max-width: 768px){
+    &:after, &:before  {      
+      background-color: black;
+    }
   }
 }

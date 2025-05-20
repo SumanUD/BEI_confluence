@@ -14,6 +14,44 @@
   position: relative;
   overflow: hidden; 
 
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+
+  @media (max-width:1120px){
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logo{
+    position: relative;        
+    img{
+      position: absolute;
+
+      transform: translate(-50%, -50%);
+      height: 60px;
+      width: 120px;
+      object-fit: contain;
+      opacity: 0;
+      filter: drop-shadow(0 0 10px var(--glow-color, rgba(255, 255, 255, 0.8)));
+      transition: all .5s ease-in-out;
+
+      &.active-logo{        
+        opacity: 1;        
+      }
+      &.position1{
+        top: calc(45%);
+        left: 35%;        
+      }
+      &.position2{
+        top: 35%;
+        left: 55%;        
+      }
+      &.position3{
+        top: 56%;
+        left: 18%;
+      }
+    }
+  }
+
   /* Brand list on the right */
   .brands {
     height: 88vh;
@@ -31,7 +69,7 @@
     list-style: none;
     border-right: 2px solid rgba(255, 255, 255, 0.2);
 
-
+    position: static;
 
     &::-webkit-scrollbar {
       width: 6px;
@@ -45,10 +83,12 @@
 
 
     li {
-      position: relative;
+      position: static;
       padding: 10px;
       font-size: 39px;
-      
+      @media (max-width:1120px){
+        font-size: 30px;
+      }
 
       a {
         text-decoration: none;
@@ -62,32 +102,21 @@
 
       /* Hidden brand logos */
       .brand-logo {
-        position: absolute;
+        position: fixed;
         width: 50px;
-        height: 80px;
-        background-size: contain;
-        background-repeat: no-repeat;
+        height: 80px;        
         opacity: 0;
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;    
         z-index: 10;
         pointer-events: none;
         
         // Custom glow effect using `data-glow` attribute
         filter: drop-shadow(0 0 10px var(--glow-color, rgba(255, 255, 255, 0.8)));
       
-        // Add a pulsating shine effect
-        &::before {
-          content: "";
-          position: absolute;
-          width: 100%;
+        img{
           height: 100%;
-          top: 0;
-          left: 0;
-          background: radial-gradient(circle, var(--glow-color, rgba(255, 255, 255, 0.7)) 0%, transparent 70%);
-          opacity: 0;
-          transform: scale(0.8);
-          transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+          width: 100%;
+          object-fit: contain;
         }
       
         // Show effect on hover
@@ -135,9 +164,9 @@
     --rotate-y: -5deg;
   }
   
-  .eight-pm .brand-logo {
-    top: 27vh;
-    left: -48vw;
+  .eight-pm .brand-logo {    
+    top: 20vh;
+    left: calc(-45vw - 50%);
     --glow-color: rgba(255, 165, 0, 0.8);
     --rotate-x: -15deg;
     --rotate-y: 10deg;
