@@ -98,7 +98,7 @@ const Navbar = () => {
             <Link to="/work">Work</Link>
           </li>
           <li className="work-mobile">
-            <p onClick={handleOpenWorkMobile}>Work <img src="/public/assets/right.png" alt="" /></p>
+            <p onClick={handleOpenWorkMobile}>Work <img src="/assets/right.png" alt="" /></p>
           </li>
           <li className={location.pathname === "/services" ? "active" : ""}>
             <Link to="/services">Services</Link>
@@ -114,7 +114,7 @@ const Navbar = () => {
         <div className={`work-mobile-contents ${OpenWork ? 'open': ''}`}>
           <div className="heading">
             <p>Brands</p>
-            <img src="/public/assets/right.png" alt="" onClick={()=>setOpenWork(false)} />            
+            <img src="/assets/right.png" alt="" onClick={()=>setOpenWork(false)} />            
           </div>
           <div className="menu-list">
             {
