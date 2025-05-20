@@ -68,9 +68,17 @@ const Navbar = () => {
   }
 
   useEffect(()=>{
-    setOpenMenu(false)
-    setOpenWork(false)
+
+    if(pathname == '/'){
+      setOpenMenu(true)      
+    }else{
+      setOpenMenu(false)
+      setOpenWork(false)
+    }
+
   }, [pathname])
+
+
 
   return (
     <div className={openMenu ? 'nav-visible' : ''}>
