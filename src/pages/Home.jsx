@@ -4,14 +4,14 @@ import "../styles/home.scss";
 
 const Home = () => {
 
-    useEffect(() => {
-      const closeNav = () => {
-        document.body.classList.toggle("nav-visible");
-      };
+    // useEffect(() => {
+    //   const closeNav = () => {
+    //     document.body.classList.toggle("nav-visible");
+    //   };
   
-      // Close menu when switching tabs
-      closeNav();
-    }, [location.pathname]); 
+    //   // Close menu when switching tabs
+    //   closeNav();
+    // }, [location.pathname]); 
   return (
     <MainLayout>
 <div className="home">
