@@ -40,6 +40,7 @@ const BrandSlider = ({ images }) => {
             <img 
               src={image} 
               alt="" 
+              loading="lazy"
               onLoad={(event) => {
                 const isImageCached = event.target.complete && event.target.naturalHeight !== 0;
                 if (isImageCached) {
