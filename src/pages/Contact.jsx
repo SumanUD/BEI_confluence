@@ -30,7 +30,7 @@ const ContactForm = () => {
     <div className="contact-form">
       <Navbar />
       <div className="contact-contents">
-        <img src="/public/assets/contactNew.png" className='contactImage' alt="contactImage"/>
+        <img src="/assets/contactNew.png" className='contactImage' alt="contactImage"/>
         {/* <p>GOT AN IDEA</p> */}
         <h2>Drop Us A Message</h2>
         <p>We're excited to work with you soon! Please drop an email with your details & requirements to <a href="mailto:bd@beiconfluence.com">bd@beiconfluence.com</a>.</p>
