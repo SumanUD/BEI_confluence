@@ -61,6 +61,7 @@ const Home = () => {
             <video
               autoPlay              
               loop
+              muted
               playsInline
               className="background-video"
               onLoadedData={()=>handleLoadingScreen(false)}
