@@ -59,8 +59,7 @@ const Home = () => {
         <div className="home">
           <div className="video-container">
             <video
-              autoPlay
-              muted
+              autoPlay              
               loop
               playsInline
               className="background-video"

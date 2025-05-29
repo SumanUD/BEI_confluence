@@ -103,8 +103,7 @@ const AboutUs = () => {
             {
               videoSrc && 
               <video
-                autoPlay
-                muted
+                autoPlay                
                 loop
                 playsInline
                 className="background-video"
