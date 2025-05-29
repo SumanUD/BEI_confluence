@@ -37,7 +37,16 @@ const BrandSlider = ({ images }) => {
       {images?.map((image, index) => (
         <div key={index} className="slide">
           <div className="slide-image" >
-            <img src={image} alt="" onLoad={()=>handleLoadingScreen(false)}/>
+            <img 
+              src={image} 
+              alt="" 
+              onLoad={(event) => {
+                const isImageCached = event.target.complete && event.target.naturalHeight !== 0;
+                if (isImageCached) {
+                  handleLoadingScreen(false);
+                }
+              }}  
+            />
           </div>
         </div>
       ))}
@@ -81,7 +90,7 @@ const EnglishOven = () => {
   const handleLoadingScreen = (action) => {
     setTimeout(() => {
       setLoading(action)
-    }, 1500);
+    }, 4000);
   }
 
   return (
