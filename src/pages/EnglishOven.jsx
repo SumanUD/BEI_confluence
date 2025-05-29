@@ -114,7 +114,7 @@ const EnglishOven = () => {
       {
         loading && 
         <div className="loadingScreen">
-          <img src="/public/assets/gif/BEI_logo.gif" alt="" />
+          <img src="/assets/gif/BEI_logo.gif" alt="" />
         </div>
       }
 
