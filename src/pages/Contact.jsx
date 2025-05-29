@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import "../styles/contact.scss";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
@@ -30,7 +30,8 @@ const ContactForm = () => {
     <div className="contact-form">
       <Navbar />
       <div className="contact-contents">
-        <p>GOT AN IDEA</p>
+        <img src="/public/assets/contactNew.png" className='contactImage' alt="contactImage"/>
+        {/* <p>GOT AN IDEA</p> */}
         <h2>Drop Us A Message</h2>
         <p>We're excited to work with you soon! Please drop an email with your details & requirements to <a href="mailto:bd@beiconfluence.com">bd@beiconfluence.com</a>.</p>
         <form onSubmit={handleSubmit}>
@@ -86,6 +87,7 @@ const ContactForm = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 };
