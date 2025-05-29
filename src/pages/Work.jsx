@@ -29,6 +29,8 @@ const Work = () => {
         setBarndList(arrWithPosition)        
       }catch(err){
         console.log(err)
+      }finally{
+        handleLoadingScreen(false)
       }
     }
 
@@ -36,8 +38,21 @@ const Work = () => {
   }, [])
 
 
+  const [loading, setLoading] = useState(true);
+  const handleLoadingScreen = (action) => {
+    setTimeout(() => {
+      setLoading(action)
+    }, 1000);
+  }
+
   return (
     <>
+      {
+        loading && 
+        <div className="loadingScreen">
+          <img src="/public/assets/gif/BEI_logo.gif" alt="" />
+        </div>
+      }
       <Navbar />
       <div className="work">
         <div className="logo">

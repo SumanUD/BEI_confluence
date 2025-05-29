@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import AboutGallery from "../components/AboutGallery";
@@ -14,8 +14,45 @@ import rumaGupta from "/assets/about/ruma_gupta.png";
 import about_us from "/assets/about/about_us.png";
 import { Link } from "react-router-dom";
 import LogoSlider from "../components/logoSlider";
+import axios from "axios";
 
 const AboutUs = () => {
+
+  const api = import.meta.env.VITE_API_URL;
+  const [videoSrc, setVideoSrc] = useState('');
+  const [about, setAbout] = useState({});
+
+  useEffect(()=>{
+    async function getData(){
+      try{
+        const res = await axios.get(api + '/aboutcms')        
+        setAbout(res.data.data)
+      }catch(err){
+        console.log(err)
+      }
+    }
+
+    getData();
+
+  },[])
+
+  useEffect(()=>{
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const setVideo = () => {
+      setVideoSrc(
+        mediaQuery.matches
+          ? about.mobile_video
+          : about.desktop_video
+      );
+    };
+
+    setVideo()
+
+    mediaQuery.addEventListener("change", setVideo);    
+    return () => mediaQuery.removeEventListener("change", setVideo);
+
+  }, [about])
+
   const tapasGuptaParagraphs = [
     " A seasoned marketing and advertising maven, Tapas Gupta brings over 35 years of rich experience, spanning Indian and international markets, to the table.His illustrious career includes a long - standing association with McCann - Erickson Worldwide—one of the globe’s leading advertising agencynetworks.",
     "From 1987 to 1995, Tapas Gupta spearheaded McCann Erickson’s offices in Delhi, Kolkata, and Kathmandu as Senior Vice President and Director, simultaneously managing the Bangalore office from 1991 to 1993. His expertise extended beyond borders as he collaborated with McCann offices inHong Kong, Manila, and Bangkok, coordinating campaigns for global giants Coca - Cola and Nestlé across the APAC region.",
@@ -44,24 +81,39 @@ const AboutUs = () => {
   const [visibleCountShahid, setVisibleCountShahid] = useState(1);
   const [visibleCountRuma, setVisibleCountRuma] = useState(1);
 
+  const [loading, setLoading] = useState(true);
+  const handleLoadingScreen = (action) => {
+    setTimeout(() => {
+      setLoading(action)
+    }, 1500);
+  }
 
-
-  return (
+  return (    
     <>
+      {
+        loading && 
+        <div className="loadingScreen">
+          <img src="/public/assets/gif/BEI_logo.gif" alt="" />
+        </div>
+      }
       <Navbar />
       <div className="about-container">
         <div className="aboutUs_banner">
           <div className="video-container">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="background-video"
-            >
-              <source src="/assets/home/banner_video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {
+              videoSrc && 
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="background-video"
+                onLoadedData={() => handleLoadingScreen(false)}
+              >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            }
 
           </div>
         </div>
