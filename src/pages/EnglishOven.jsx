@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "magnific-popup";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -14,19 +14,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import LogoSlider from "../components/logoSlider";
 
 import VideoGallery from "../components/VideoGallery";
-
-const brandLogos = [
-  "/assets/brand_logo/8PM.png",
-  "/assets/brand_logo/Apollo_Copy.png",
-  "/assets/brand_logo/BBK.png",
-  "/assets/brand_logo/Crax.png",
-  "/assets/brand_logo/Cremica.png",
-  "/assets/brand_logo/ECE.png",
-  "/assets/brand_logo/EnglishOven.png",
-  "/assets/brand_logo/Gyan.png",
-  "/assets/brand_logo/IIL.png",
-
-];
+import { useLocation, useParams } from "react-router-dom";
+import axios from "axios";
+import { RenderEmbeddedText } from "../components/RenderEmbeddedText";
 
 const imageList = [
   { id: 5, src: "/assets/englishOven/Digestive.jpg", alt: "Atta Burger Bun 200g (Front)" },
@@ -56,24 +46,6 @@ const videoListGallery = [
   },
 ];
 
-const videoList = [
-  {
-    id: 1,
-    url: "https://www.youtube.com/embed/Ua9vCpncYLA?si=UR_1qDmC-3nrlevX",
-  },
-  {
-    id: 2,
-    url: "https://www.youtube.com/embed/Ntk-XiNh7_I?si=GdI3nFvM9xCDtFhD",
-  },
-
-];
-
-const bannerImages = [
-  "/assets/englishOven/banner1.png",
-  "/assets/englishOven/banner2.png",
-
-];
-
 const BrandSlider = ({ images }) => {
   const sliderSettings = {
     dots: true,
@@ -89,7 +61,7 @@ const BrandSlider = ({ images }) => {
 
   return (
     <Slider {...sliderSettings} className="brand-slider">
-      {images.map((image, index) => (
+      {images?.map((image, index) => (
         <div key={index} className="slide">
           <div className="slide-image" style={{ backgroundImage: `url(${image})` }}></div>
         </div>
@@ -97,7 +69,6 @@ const BrandSlider = ({ images }) => {
     </Slider>
   );
 };
-
 
 const videosettings = {
   dots: true,
@@ -109,100 +80,93 @@ const videosettings = {
 };
 
 
-
-
 const EnglishOven = () => {
-  // useEffect(() => {
-  //   $(".video-gallery").magnificPopup({
-  //     delegate: "a",
-  //     type: "iframe",
-  //     gallery: {
-  //       enabled: true
-  //     }
-  //   });
-  // }, []);
+
+  const {brand} = useParams()
+
+  const api = import.meta.env.VITE_API_URL;
+  const [theBrand, setTheBrand] = useState({})
+  useEffect(()=>{
+
+    async function getBrand(){
+      try{
+        const res = await axios.get(api + '/allbrands')
+        setTheBrand(res.data.data.find(obj => obj.brand_name == brand.split('_').join(' ')))        
+      }catch(err){
+        console.log(err)
+      }
+    }
+
+    getBrand()
+  }, [brand])
 
   return (
     <div className="englishOven">
       <Navbar />
-      <BrandSlider images={bannerImages} />
+      <BrandSlider images={theBrand?.banner_images} />
 
       {/* <div className="brand"></div> */}
-      <div className="below_banner">
-
-        {/* <VideoCarousel/> */}
-
-
-<div id="videoCarousel" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        {videoList.map((video, index) => (
-          <div
-            key={video.id}
-            className={`carousel-item ${index === 0 ? "active" : ""}`}
-          >
-            <div className="d-flex justify-content-center">
-              <iframe
-                width="780"
-                height="500"
-                src={video.url}
-                title={`YouTube video ${video.id}`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
+      {
+        theBrand?.youtube_link?.length >= 1 &&
+        <div className="below_banner">             
+          <div id="videoCarousel" className="carousel slide" data-bs-ride="carousel">
+            <div className="carousel-inner">
+              {theBrand?.youtube_link?.map((video, index) => (
+                <div
+                  key={index}
+                  className={`carousel-item ${index === 0 ? "active" : ""}`}
+                >
+                  <div className="d-flex justify-content-center">
+                    <iframe
+                      width="780"
+                      height="500"
+                      src={video}
+                      title={`YouTube video ${index + 1}`}  
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+              ))}
             </div>
+
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#videoCarousel"
+              data-bs-slide="prev"
+            >
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#videoCarousel"
+              data-bs-slide="next"
+            >
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
-        ))}
-      </div>
-
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#videoCarousel"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#videoCarousel"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
-
-
-
-        <div className="below_banner_content">
-          <p>
-          English Oven, a premium offering from Mrs. Bector's Food Specialities Limited, embodies the legacy of quality, taste, and tradition. With origins in Mrs. Rajni Bector's passion for baking, the brand represents decades of excellence rooted in homemade recipes and entrepreneurial spirit. From its humble beginnings with hand-churned ice cream and small-batch baking, English Oven has grown into a name synonymous with artisanal breads and baked goods, delivering homely quality and consistent taste to families worldwide.
-Today, Mrs. Bector’s Food Specialities Limited, backed by the inspiration of its founder and her Padma Shri recognition, serves customers across India and beyond, with exports reaching over 64 countries. English Oven is a testament to innovation, quality, and care, reflecting the brand’s mission to provide wholesome baked products crafted with love.
-
-          </p>
+          
+          <div className="below_banner_content">
+            <RenderEmbeddedText embeddedText={theBrand?.below_video_text}/>
+          </div>
         </div>
-      </div>
+      }
 
-      {/* <div className="button_container">
-        <button className="brand_button" type="submit">Learn More</button>
-      </div> */}
-
-      <ImageGallery images={imageList} />
-      <VideoGallery videos={videoListGallery} />
-
-
+      <ImageGallery images={theBrand?.image_gallery} />
+    
+      {
+        (theBrand?.video_gallery_videos?.length > 0) ? <VideoGallery videos={theBrand?.video_gallery_videos} thumbnail={theBrand?.brand_logo} brandName={theBrand?.brand_name}/> : ''
+      }
       <div className="brand-logo-slider">
         <LogoSlider 
-          images={brandLogos} 
           width={200} 
           height={270}
-          imageQuantity={brandLogos.length}
         />
       </div>
-
 
       <Footer />
     </div>

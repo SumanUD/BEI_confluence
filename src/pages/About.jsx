@@ -13,6 +13,7 @@ import rumaGupta from "/assets/about/ruma_gupta.png";
 
 import about_us from "/assets/about/about_us.png";
 import { Link } from "react-router-dom";
+import LogoSlider from "../components/logoSlider";
 
 const AboutUs = () => {
   const tapasGuptaParagraphs = [
@@ -256,9 +257,10 @@ const AboutUs = () => {
           </div>
         </div>
 
-<div className="about">
-      <AboutGallery />
-</div>
+        <div className="about">
+          {/* <AboutGallery /> */}
+          <LogoSlider/>
+        </div>
 
       </div>
       <Footer />

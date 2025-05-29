@@ -1,8 +1,30 @@
-import React from "react";
+
 import Slider from "react-slick";
 import "../styles/logoSlider.scss";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const LogoSlider = ({ images = [], reverse = false, speed = 3000 }) => {
+const LogoSlider = ({ reverse = false, speed = 3000 }) => {
+
+  const api = import.meta.env.VITE_API_URL;
+  const [brandImage, setBrandImage] = useState([]);
+  
+  useEffect(() => {
+    
+    async function getBrands(){
+      try{
+        const res = await axios.get(api + '/allbrands');
+        let newArr = res.data.data?.sort((a,b) => a.id - b.id)
+        setBrandImage(newArr.map(obj => obj.brand_logo))        
+      }catch(err){
+        console.log(err)
+      }
+    }
+    
+    getBrands()
+  }, [])
+  
+
   const settings = {
     infinite: true,
     speed: 5000, // speed of scroll animation (not autoplay delay)
@@ -42,7 +64,7 @@ const LogoSlider = ({ images = [], reverse = false, speed = 3000 }) => {
         <h2>BEI BRANDS</h2>
       </div>
       <Slider {...settings}>
-        {images.map((img, index) => (
+        {brandImage?.map((img, index) => (
           <div className="logo-slide-item" key={index}>
             <img src={img} alt={`Logo ${index}`} />
           </div>

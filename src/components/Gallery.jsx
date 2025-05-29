@@ -18,9 +18,9 @@ const ImageGallery = ({ images = [] }) => {
       <div className="container">
         <div className="row">
           {images.map((image, index) => (
-            <div key={image.id || index} className="col-md-3 mb-3">
+            <div key={index} className="col-md-3 mb-3">
               <img
-                src={image.src}
+                src={image}
                 className="img-fluid rounded"
                 alt={image.alt || `Gallery Image ${index + 1}`}
                 onClick={() => openLightbox(index)}
@@ -35,7 +35,7 @@ const ImageGallery = ({ images = [] }) => {
           open={open}
           close={() => setOpen(false)}
           index={currentIndex}
-          slides={images.map((img) => ({ src: img.src }))}
+          slides={images.map((img) => ({ src: img }))}
         />
       </div>
     </div>
