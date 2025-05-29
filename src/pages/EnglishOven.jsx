@@ -19,8 +19,7 @@ import axios from "axios";
 import { RenderEmbeddedText } from "../components/RenderEmbeddedText";
 
 
-const BrandSlider = ({ images, loadingState, handleLoadingScreen }) => {
-  console.log(loadingState)
+const BrandSlider = ({ images, handleLoadingScreen }) => {  
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -38,16 +37,14 @@ const BrandSlider = ({ images, loadingState, handleLoadingScreen }) => {
       {images?.map((image, index) => (
         <div key={index} className="slide">
           <div className="slide-image" >
+            {/* <ImagePreloader imageUrl={image}/> */}
             <img 
-              src={image} 
+              src={image}
               alt="" 
               loading="lazy"
-              onLoad={(event) => {
-                const isImageCached = event.target.complete && event.target.naturalHeight !== 0;
-                if (isImageCached) {
-                  handleLoadingScreen(false);
-                }
-              }}  
+              decoding="async"
+              fetchPriority="high"
+              onLoad={()=>handleLoadingScreen(false)}
             />
           </div>
         </div>
@@ -81,8 +78,6 @@ const EnglishOven = () => {
         setTheBrand(res.data.data.find(obj => obj.brand_name == brand.split('_').join(' ')))        
       }catch(err){
         console.log(err)
-      }finally{
-        handleLoadingScreen(false)
       }
     }
 
@@ -92,7 +87,7 @@ const EnglishOven = () => {
   const handleLoadingScreen = (action) => {
     setTimeout(() => {
       setLoading(action)
-    }, 4000);
+    }, 1500);
   }
 
   return (
