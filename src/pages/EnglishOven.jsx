@@ -19,7 +19,8 @@ import axios from "axios";
 import { RenderEmbeddedText } from "../components/RenderEmbeddedText";
 
 
-const BrandSlider = ({ images }) => {
+const BrandSlider = ({ images, loadingState, handleLoadingScreen }) => {
+  console.log(loadingState)
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -29,7 +30,7 @@ const BrandSlider = ({ images }) => {
     autoplay: true,
     autoplaySpeed: 3000,
     // arrows: false,
-    arrows: true,
+    // arrows: true,
   };
 
   return (
@@ -69,6 +70,7 @@ const EnglishOven = () => {
 
   const {brand} = useParams()
 
+  const [loading, setLoading] = useState(true);
   const api = import.meta.env.VITE_API_URL;
   const [theBrand, setTheBrand] = useState({})
   useEffect(()=>{
@@ -86,8 +88,7 @@ const EnglishOven = () => {
 
     getBrand()
   }, [brand])
-
-  const [loading, setLoading] = useState(true);
+  
   const handleLoadingScreen = (action) => {
     setTimeout(() => {
       setLoading(action)
@@ -105,7 +106,7 @@ const EnglishOven = () => {
 
       <div className="englishOven">
         <Navbar />
-        <BrandSlider images={theBrand?.banner_images} />
+        <BrandSlider images={theBrand?.banner_images} loadingState={!loading} handleLoadingScreen={handleLoadingScreen} />
 
         {/* <div className="brand"></div> */}
         {
