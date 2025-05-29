@@ -18,33 +18,6 @@ import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { RenderEmbeddedText } from "../components/RenderEmbeddedText";
 
-const imageList = [
-  { id: 5, src: "/assets/englishOven/Digestive.jpg", alt: "Atta Burger Bun 200g (Front)" },
-  { id: 6, src: "/assets/englishOven/Cremica ad (Kareena)_TOI-02.jpg", alt: "Atta Burger Bun 200g (Front)" },
-  { id: 3, src: "/assets/englishOven/Gourmet_Leaftet.jpg", alt: "Atta Burger Bun 200g (Front)" },
-  { id: 7, src: "/assets/englishOven/EO Full Page AD with Kareena Kapoor.jpg", alt: "Atta Burger Bun 200g (Front)" },
-];
-
-const videoListGallery = [
-  {
-    title: "Apna Apna Cremica",
-    description: "Apna Apna Cremica description",
-    image: "/assets/englishOven/White Bread (350) Front & Back.jpg",
-    videoUrl: "https://www.youtube.com/embed/qh8K6eAqN64?si=Dvcjad_MyM8VXJUe",
-  },
-  {
-    title: "English Over Bread",
-    description: "English Over Bread description",
-    image: "/assets/englishOven/Zero Maida Pav_1.jpg",
-    videoUrl: "https://www.youtube.com/embed/qh8K6eAqN64?si=Dvcjad_MyM8VXJUe",
-  },
-  {
-    title: "English Over Burger",
-    description: "English over burger description",
-    image: "/assets/englishOven/Fruit Bun_1.jpg",
-    videoUrl: "https://www.youtube.com/embed/qh8K6eAqN64?si=Dvcjad_MyM8VXJUe",
-  },
-];
 
 const BrandSlider = ({ images }) => {
   const sliderSettings = {
@@ -63,7 +36,9 @@ const BrandSlider = ({ images }) => {
     <Slider {...sliderSettings} className="brand-slider">
       {images?.map((image, index) => (
         <div key={index} className="slide">
-          <div className="slide-image" style={{ backgroundImage: `url(${image})` }}></div>
+          <div className="slide-image" >
+            <img src={image} alt="" onLoad={()=>handleLoadingScreen(false)}/>
+          </div>
         </div>
       ))}
     </Slider>
@@ -106,7 +81,7 @@ const EnglishOven = () => {
   const handleLoadingScreen = (action) => {
     setTimeout(() => {
       setLoading(action)
-    }, 2500);
+    }, 1500);
   }
 
   return (

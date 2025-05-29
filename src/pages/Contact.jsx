@@ -29,61 +29,63 @@ const ContactForm = () => {
   return (
     <div className="contact-form">
       <Navbar />
-      <p>GOT AN IDEA</p>
-      <h2>Drop Us A Message</h2>
-      <p>We're excited to work with you soon! Please drop an email with your details & requirements to <a href="mailto:bd@beiconfluence.com">bd@beiconfluence.com</a>.</p>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Your Name</label>
-          <input 
-            type="text" 
-            name="name" 
-            value={formData.name} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div className="form-group">
-          <label>Your Organization's Name</label>
-          <input 
-            type="text" 
-            name="organization" 
-            value={formData.organization} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div className="form-group">
-          <label>Your Email</label>
-          <input 
-            type="email" 
-            name="email" 
-            value={formData.email} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div className="form-group">
-          <label>Your Number</label>
-          <input 
-            type="text" 
-            name="number" 
-            value={formData.number} 
-            onChange={handleChange} 
-            required 
-          />
-        </div>
-        <div className="form-group">
-          <label>Website/Social Media Link</label>
-          <input 
-            type="url" 
-            name="website" 
-            value={formData.website} 
-            onChange={handleChange} 
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <div className="contact-contents">
+        <p>GOT AN IDEA</p>
+        <h2>Drop Us A Message</h2>
+        <p>We're excited to work with you soon! Please drop an email with your details & requirements to <a href="mailto:bd@beiconfluence.com">bd@beiconfluence.com</a>.</p>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Your Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              value={formData.name} 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="form-group">
+            <label>Your Organization's Name</label>
+            <input 
+              type="text" 
+              name="organization" 
+              value={formData.organization} 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="form-group">
+            <label>Your Email</label>
+            <input 
+              type="email" 
+              name="email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="form-group">
+            <label>Your Number</label>
+            <input 
+              type="text" 
+              name="number" 
+              value={formData.number} 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="form-group">
+            <label>Website/Social Media Link</label>
+            <input 
+              type="url" 
+              name="website" 
+              value={formData.website} 
+              onChange={handleChange} 
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };

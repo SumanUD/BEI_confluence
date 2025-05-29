@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.scss";
 import BEILogogif from "/assets/BEI_Logo.png"
+import axios from "axios";
 
 const Navbar = () => {
   const location = useLocation(); // Get current URL
@@ -79,6 +80,22 @@ const Navbar = () => {
   }, [pathname])
 
 
+  const api = import.meta.env.VITE_API_URL;
+
+  const [brandList, setBarndList] = useState([])
+  useEffect(()=>{
+    async function callAPI(){
+      try{
+        const res = await axios.get(api + '/allbrands');
+        let newArr = res.data.data?.sort((a,b) => a.id - b.id)
+        setBarndList(newArr)        
+      }catch(err){
+        console.log(err)
+      }
+    }
+
+    callAPI()
+  }, [])
 
   return (
     <div className={openMenu ? 'nav-visible' : ''}>
@@ -126,9 +143,9 @@ const Navbar = () => {
           </div>
           <div className="menu-list">
             {
-              brands.map((item, index)=>(
+              brandList.map((brand, index)=>(
                 <div key={index}>
-                  <Link to={item.link}>{item.name}</Link>
+                  <Link to={'/work/brand/'+ brand.brand_name.split(" ").join("_")}>{brand.brand_name}</Link>
                 </div>
               ))
             }

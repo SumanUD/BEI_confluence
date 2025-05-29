@@ -131,6 +131,7 @@ header {
       -webkit-text-stroke: 0.5px black;    
       margin: 0;        
       cursor: pointer;      
+      width: fit-content;
 
       display: flex;
       column-gap: 8px;
@@ -151,6 +152,7 @@ header {
     }
     @media (max-width: 786px){
       display: block;
+      width: fit-content;
     }
   } 
 
@@ -202,6 +204,7 @@ header {
         padding: 8px 0;
         display: block;
         transition: all .5s ease;
+        text-transform: uppercase;
         &:hover{
           scale: 1.2;
         }
