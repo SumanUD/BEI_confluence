@@ -68,8 +68,8 @@ const News = () => {
       }
       <Navbar />
       <div className="news">
-        <img src="assets/news/news.png" alt="img" className="img1" />
-        <img src="assets/news/tag.jpg" alt="img" className="img2" />
+        <img src="/assets/news/news.png" alt="img" className="img1" />
+        <img src="/assets/news/tag.jpg" alt="img" className="img2" />
         <div className="news-slider">
           <Slider {...sliderSettings} className="brand-slider">
             {

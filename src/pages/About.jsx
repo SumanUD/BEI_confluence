@@ -120,8 +120,8 @@ const AboutUs = () => {
               </video>
             }
             <button onClick={()=>setMute(!mute)} className="mute_unmute">
-              <img src="/public/assets/mute.png" alt="icons" className={mute ? 'hide':''}/>
-              <img src="/public/assets/unmute.png" alt="icon" className={mute ? '':'hide'}/>
+              <img src="/assets/mute.png" alt="icons" className={mute ? 'hide':''}/>
+              <img src="/assets/unmute.png" alt="icon" className={mute ? '':'hide'}/>
             </button>
           </div>
         </div>
