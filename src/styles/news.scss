@@ -1,7 +1,58 @@
-.news {
-  background-image: url("/assets/news.png");
+.news {  
   background-size: 90% 100%;
   background-position: bottom;
   height: 100vh;
   width: 100%;
+  background: #FFE600;
+  position: relative;
+
+  .img1{
+    position: absolute;
+    top: 50px;
+    left: 40px;
   }
+  .img2{
+    position: absolute;
+    top: 50px;
+    right: 40px;
+  }
+
+  .news-slider{
+    position: absolute;
+    top: 50%;    
+    left: 50%;    
+    transform: translate(-50%, -50%) rotate(-10deg);    
+    max-width: 1200px;
+    width: 100%;
+    z-index: 5;
+  }
+  .brand-slider{
+    .slick-slide > div{
+      margin: 0 30px;
+    }
+  }
+
+  .slide{
+    max-height: 500px;
+    min-height: 500px;
+    background-image: url('/assets/thumbnail.png');
+    background-size: 100%;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .slide-image{
+      position: absolute;
+      top: -35px;      
+      scale: .6;
+      transform: rotate(-5deg);
+      
+    }
+    img{
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
