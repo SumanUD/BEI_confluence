@@ -8,32 +8,6 @@ const Navbar = () => {
   const location = useLocation(); // Get current URL
 
   const {pathname} = location;  
-  // useEffect(() => {
-  //   const closeNav = () => {
-  //     document.body.classList.remove("nav-visible");
-  //   };
-
-  //   // Close menu when switching tabs
-  //   closeNav();
-  // }, [location.pathname]); // Runs every time the route changes
-  
-
-  // useEffect(() => {
-  //   const navButton = document.querySelector(".nav-button");
-
-  //   if (navButton) {
-  //     const toggleNav = (e) => {
-  //       e.preventDefault();
-  //       document.body.classList.toggle("nav-visible");
-  //     };
-
-  //     navButton.addEventListener("click", toggleNav);
-
-  //     return () => {
-  //       navButton.removeEventListener("click", toggleNav);
-  //     };
-  //   }
-  // }, []);
 
   const [openMenu, setOpenMenu] = useState(false);  
 
