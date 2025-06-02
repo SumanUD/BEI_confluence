@@ -5,6 +5,7 @@ import AboutGallery from "../components/AboutGallery";
 import "../styles/about.scss";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
+import { useRef } from "react";
 
 import tapasGupta from "/assets/about/tapas_image.png";
 import abhishekGupta from "/assets/about/abhishek_image.png";
@@ -85,8 +86,10 @@ const AboutUs = () => {
   const handleLoadingScreen = (action) => {
     setTimeout(() => {
       setLoading(action)
-    }, 1500);
+    }, 500);
   }
+
+  const bannerRef = useRef(null);
 
   return (    
     <>
@@ -103,11 +106,13 @@ const AboutUs = () => {
             {
               videoSrc && 
               <video
+                muted
                 autoPlay                
                 loop
                 playsInline
                 className="background-video"
                 onLoadedData={() => handleLoadingScreen(false)}
+                ref={bannerRef}
               >
                 <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.

@@ -1,31 +1,16 @@
+@import url('https://fonts.cdnfonts.com/css/futura');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Futura', sans-serif;
   }
 
-  @import url('https://fonts.cdnfonts.com/css/futura');
-
-* {
-  font-family: 'Futura', sans-serif;
-}
-
-  
   html, body {
     width: 100%;
     height: 100%;
     overflow-x: hidden; 
-  }
-  @font-face {
-    font-family: 'Futura';
-    src: url('/public/assets/font/futura/futur.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  // Apply globally to all elements
-  * {
-    font-family: 'Futura', sans-serif;
   }
   
 

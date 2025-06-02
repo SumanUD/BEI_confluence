@@ -1,16 +1,7 @@
-@import url('https://fonts.cdnfonts.com/css/futura');
-
-* {
-  font-family: 'Futura', sans-serif;
-}
-
-
-
 .englishOven {
-
     header img {
     display: none;
-}
+  }
 
   .brandVideo {
     width: 780px;
@@ -19,10 +10,6 @@
     justify-content: center;
     align-items: center;
   }
-  
-
-  
-
     ::-webkit-scrollbar {
       width: 0;
       /* Hides the scrollbar width */
@@ -160,6 +147,9 @@
       width: 100%;
       padding: 0 20px; // Add spacing
       overflow-x: hidden;
+      #videoCarousel{
+        margin-bottom: 45px;
+      }
     }
   
     .banner-image {

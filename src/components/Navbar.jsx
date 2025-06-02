@@ -116,6 +116,9 @@ const Navbar = () => {
       <div className="backdrop" onClick={handleToggleAll}></div>
       <nav className="nav-wrapper">
         <ul className="nav">
+          <li className={location.pathname === "/" ? "active" : ""}>
+            <Link to="/">Home</Link>
+          </li>
           <li className={location.pathname === "/about" ? "active" : ""}>
             <Link to="/about">About us</Link>
           </li>

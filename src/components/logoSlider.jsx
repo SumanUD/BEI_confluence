@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "../styles/logoSlider.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const LogoSlider = ({ reverse = false, speed = 3000 }) => {
 
@@ -15,7 +16,7 @@ const LogoSlider = ({ reverse = false, speed = 3000 }) => {
       try{
         const res = await axios.get(api + '/allbrands');
         let newArr = res.data.data?.sort((a,b) => a.id - b.id)
-        setBrandImage(newArr.map(obj => obj.brand_logo))        
+        setBrandImage(newArr)        
       }catch(err){
         console.log(err)
       }
@@ -64,10 +65,12 @@ const LogoSlider = ({ reverse = false, speed = 3000 }) => {
         <h2>BEI BRANDS</h2>
       </div>
       <Slider {...settings}>
-        {brandImage?.map((img, index) => (
-          <div className="logo-slide-item" key={index}>
-            <img src={img} alt={`Logo ${index}`} />
-          </div>
+        {brandImage?.map((img, index) => (          
+          <a href={`/work/brand/${img.brand_name.split(' ').join('_')}`}>
+            <div className="logo-slide-item" key={index}>                
+              <img src={img.brand_logo} alt={`Logo ${index}`} />
+            </div>
+          </a>          
         ))}
       </Slider>
     </div>

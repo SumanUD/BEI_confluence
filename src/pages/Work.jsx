@@ -1,6 +1,7 @@
 // import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "../styles/work.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -75,6 +76,7 @@ const Work = () => {
           }
         </ul>
       </div>
+      <Footer/>
     </>
   );
 };
