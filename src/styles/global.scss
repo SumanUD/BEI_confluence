@@ -71,3 +71,29 @@ h1 {
     object-fit: contain;
   }
 }
+
+.mute_unmute{
+  all: unset;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffe600;
+  cursor: pointer;
+  z-index: 9999;
+  img{
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(3905%) hue-rotate(358deg) brightness(101%) contrast(104%);
+    &.hide{
+      display: none;
+    }
+  }
+}

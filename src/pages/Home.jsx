@@ -20,6 +20,8 @@ const Home = () => {
     getData();
   }, [])
 
+  const [mute, setMute] = useState(false);
+
   useEffect(()=>{
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     const setVideo = () => {
@@ -60,11 +62,11 @@ const Home = () => {
           <div className="video-container">
             <video
               autoPlay              
-              loop
-              muted
+              loop              
               playsInline
               className="background-video"
               onLoadedData={()=>handleLoadingScreen(false)}
+              muted={!mute}
             >
             <source src={videoSrc} type="video/mp4" />
               Your browser does not support the video tag.
@@ -72,6 +74,10 @@ const Home = () => {
           </div>
         </div>
       }
+      <button onClick={()=>setMute(!mute)} className="mute_unmute">
+        <img src="/public/assets/mute.png" alt="icons" className={mute ? 'hide':''}/>
+        <img src="/public/assets/unmute.png" alt="icon" className={mute ? '':'hide'}/>
+      </button>
     </MainLayout>
   );
 };

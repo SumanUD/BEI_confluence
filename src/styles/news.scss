@@ -5,6 +5,14 @@
   width: 100%;
   background: #FFE600;
   position: relative;
+  
+  a{
+    color:black;
+  }
+  
+  @media (max-width:500px){
+    height: 80vh;
+  }
 
   .img1{
     position: absolute;
@@ -52,16 +60,29 @@
     min-height: 500px;
     width: 100%;
     position: relative;
+
+    @media (max-width:500px){
+      min-height: 350px;
+    }
+
     .slide-image{
       height: 100%;
       position: absolute;
-      top: -30px;      
+      top: -12px;      
       scale: .6;
       transform: rotate(-4deg);
       h2{
         text-transform: uppercase;
         margin-bottom: 12px;
         font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width:500px){
+      min-height: 350px;
+      .slide-image h2{
+        font-size: 1.5rem;
+        margin-top: 12px;
       }
     }
     img{

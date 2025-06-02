@@ -17,8 +17,7 @@ const News = () => {
     async function getNew(){
       try{
         const res = await axios.get(api + '/news')        
-        setNews(res.data.data)
-        console.log(res.data.data)
+        setNews(res.data.data)               
       }catch(err){
         console.log(err)
       }
@@ -76,7 +75,8 @@ const News = () => {
             {
               news?.map((item, index)=>(
                 <div className="slide" key={index}>                 
-                  <div className="slide-image">          
+                  <a href={item.news_link} target="_blank">
+                    <div className="slide-image">          
                       <h2 className="text">{item.news_title}</h2>           
                       <img 
                         src={item.thumbnail_picture}
@@ -86,34 +86,11 @@ const News = () => {
                         fetchPriority="high"                  
                       />
                     </div>
+                  </a>
                 </div>
               ))
             }
-            
-            {/* <div className="slide">
-              <div className="slide-image">          
-                <h2 className="text">Title</h2>     
-                <img 
-                  src='/assets/8PM_banner.jpg'
-                  alt="" 
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="high"                  
-                />
-              </div>
-            </div> */}
-            {/* <div className="slide">
-              <div className="slide-image">          
-                <h2 className="text">Title</h2>           
-                <img 
-                  src='/assets/8PM_banner.jpg'
-                  alt="" 
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="high"                  
-                />
-              </div>
-            </div> */}
+          
 
           </Slider>
         </div>
