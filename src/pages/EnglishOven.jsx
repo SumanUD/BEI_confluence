@@ -11,13 +11,18 @@ import "slick-carousel/slick/slick-theme.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import LogoSlider from "../components/logoSlider";
 
 import VideoGallery from "../components/VideoGallery";
 import {useParams } from "react-router-dom";
 import axios from "axios";
 import { RenderEmbeddedText } from "../components/RenderEmbeddedText";
 
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay'; // only if needed
+import '../styles/logoSlider.scss';
 
 const BrandSlider = ({ images, handleLoadingScreen }) => {  
   const sliderSettings = {
@@ -68,14 +73,14 @@ const EnglishOven = () => {
   const [loading, setLoading] = useState(true);
   const api = import.meta.env.VITE_API_URL;
   const [theBrand, setTheBrand] = useState({})
+  const [abrand, setBrand] = useState([])
 
   useEffect(()=>{        
-    async function getBrand(){
-      // setLoading(true);
+    async function getBrand(){    
       try{
         const res = await axios.get(api + '/allbrands')
         setTheBrand(res.data.data.find(obj => obj.brand_name == brand.split('_').join(' ')))        
-        console.log(res.data.data.find(obj => obj.brand_name == brand.split('_').join(' ')));
+        setBrand(res.data.data)        
       }catch(err){
         console.log(err)
       }
@@ -207,14 +212,42 @@ const EnglishOven = () => {
         {
           (theBrand?.video_gallery_video?.length > 0) ? <VideoGallery videos={theBrand?.video_gallery_video} thumbnail={theBrand?.brand_logo} brandName={theBrand?.brand_name}/> : ''
         }
-
-        <div className="brand-logo-slider">
-          <LogoSlider 
-            width={200} 
-            height={270}
-          />
-        </div>  
-
+                
+        <div className="logo-swiper-slider">
+          <div className="logoContent">
+            <h2>BEI BRANDS</h2>
+          </div>          
+          {
+            abrand.length == 0 ? "":
+            <Swiper
+              modules={[Autoplay]}
+              loop={true}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              speed={3000}            
+              spaceBetween={50}            
+              breakpoints={{
+                1024: { slidesPerView: 5 },                
+                0: { slidesPerView: 3 },
+              }}            
+            >
+              {abrand.map((img, index) => (
+                <SwiperSlide key={index}>
+                  <a href={`/work/brand/${img.brand_name?.split(" ").join("_")}`}>
+                    <img
+                      src={img.brand_logo}
+                      className="swiper-lazy"
+                      alt={img.brand_name}
+                      width="150"
+                    />                  
+                  </a>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          }
+        </div>
         <Footer/>     
       </div>
     </>

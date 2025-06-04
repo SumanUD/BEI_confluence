@@ -1,79 +1,53 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay'; // only if needed
+import '../styles/logoSlider.scss';
 
-import Slider from "react-slick";
-import "../styles/logoSlider.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-
-const LogoSlider = ({ reverse = false, speed = 3000 }) => {
-
-  const api = import.meta.env.VITE_API_URL;
-  const [brandImage, setBrandImage] = useState([]);
-  
-  useEffect(() => {
-    
-    async function getBrands(){
-      try{
-        const res = await axios.get(api + '/allbrands');
-        let newArr = res.data.data?.sort((a,b) => a.id - b.id)
-        setBrandImage(newArr)        
-      }catch(err){
-        console.log(err)
-      }
-    }
-    
-    getBrands()
-  }, [])
-  
-
-  const settings = {
-    infinite: true,
-    speed: 5000, // speed of scroll animation (not autoplay delay)
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 0, // very important for seamless continuous scroll
-    cssEase: "linear", // ensures smooth linear movement
-    arrows: false,
-    pauseOnHover: false,
-    rtl: reverse,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-  };
-
+const LogoSlider = ({ brand}) => {
   return (
-    <div className="logo-slider-wrapper">
-      <div className="logoContent">
-        <h2>BEI BRANDS</h2>
-      </div>
-      <Slider {...settings}>
-        {brandImage?.map((img, index) => (          
-          <a href={`/work/brand/${img.brand_name.split(' ').join('_')}`}>
-            <div className="logo-slide-item" key={index}>                
-              <img src={img.brand_logo} alt={`Logo ${index}`} />
-            </div>
-          </a>          
-        ))}
-      </Slider>
-    </div>
+    <>
+      {
+        brand.length > 0 ? 
+        <div className="logo-slider-wrapper">
+          <div className="logoContent">
+            <h2>BEI BRANDS</h2>
+          </div>
+          <Swiper
+            modules={[Autoplay]}
+            loop={true}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            speed={3000}
+            // slidesPerView={6}
+            spaceBetween={50}
+            // lazy={true}
+            breakpoints={{
+              1024: { slidesPerView: 6 },
+              768: { slidesPerView: 5 },
+              480: { slidesPerView: 3 },
+              0: { slidesPerView: 3 },
+            }}
+            style={{ padding: "1rem 0" }}
+          >
+            {brand.map((img, index) => (
+              <SwiperSlide key={index}>
+                <a href={`/work/brand/${img.brand_name?.split(" ").join("_")}`}>
+                  <img
+                    src={img.brand_logo}
+                    className="swiper-lazy"
+                    alt={img.brand_name}
+                    width="150"
+                  />                  
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div> : ''
+      }
+    </>
   );
 };
 

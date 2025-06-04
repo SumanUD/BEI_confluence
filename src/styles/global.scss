@@ -74,26 +74,38 @@ h1 {
 
 .mute_unmute{
   all: unset;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   position: absolute;
   bottom: 30px;
   right: 30px;
-  background: gray;
+  background: black;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid #ffe600;
+
   cursor: pointer;
   z-index: 99;
   img{
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(3905%) hue-rotate(358deg) brightness(101%) contrast(104%);
     &.hide{
       display: none;
+    }
+  }
+
+  @media (width < 800px){
+    bottom: 15px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+    img{
+      height: 12px;
+      width: 12px;
     }
   }
 }

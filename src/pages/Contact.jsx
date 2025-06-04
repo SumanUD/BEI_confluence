@@ -2,15 +2,17 @@ import { useState, useEffect } from 'react';
 import "../styles/contact.scss";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
+import axios from 'axios';
 
 
 const ContactForm = () => {
+  
   const [formData, setFormData] = useState({
     name: '',
-    organization: '',
+    organization_name: '',
     email: '',
-    number: '',
-    website: '',
+    phone_number: '',
+    website_or_social_link: '',
   });
 
   const handleChange = (e) => {
@@ -20,14 +22,66 @@ const ContactForm = () => {
     });
   };
 
+  const [success, setSuccess] = useState(false)
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [numError, setError]= useState('')
+
+  const generateNumber = () =>{
+    setNum1(Math.floor(Math.random() * 100) + 1);
+    setNum2(Math.floor(Math.random() * 100) + 1);
+  }
+  useEffect(()=>{
+    generateNumber()
+  },[])
+
+  const api = import.meta.env.VITE_API_URL;  
+  const [btnLoading, setBtnLoading] = useState(false)
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+
+    e.preventDefault();    
+    console.log(formData);       
+    setSuccess(false) 
+    async function submitForm(){
+      try{
+        const res = await axios.post(api+'/contact', formData)
+        console.log(res)
+        setFormData({
+          name: '',
+          organization_name: '',
+          email: '',
+          phone_number: '',
+          website_or_social_link: '',
+        })
+      }catch(err){
+        console.log(err)
+      }finally{
+        setBtnLoading(false)
+        generateNumber()
+        setSuccess(true)
+        setFormData({
+          name: '',
+          organization_name: '',
+          email: '',
+          phone_number: '',
+          website_or_social_link: '',
+        })
+        e.target.check_human.value = ''
+      }
+    }
+
+    if(e.target.check_human.value == (num1 + num2)){
+      setBtnLoading(true)
+      submitForm()
+      setError('')            
+    }else{
+      setError('Incorrect!!!')
+      setSuccess(false) 
+    }
   };
 
   const [loading, setLoading] = useState(true);
-  const handleLoadingScreen = (action) => {
+  const handleLoadingScreen = (action) => {    
     setTimeout(() => {
       setLoading(action)
     }, 2500);
@@ -71,8 +125,8 @@ const ContactForm = () => {
             <label>Your Organization's Name</label>
             <input 
               type="text" 
-              name="organization" 
-              value={formData.organization} 
+              name="organization_name" 
+              value={formData.organization_name} 
               onChange={handleChange} 
               required 
             />
@@ -90,9 +144,9 @@ const ContactForm = () => {
           <div className="form-group">
             <label>Your Number</label>
             <input 
-              type="text" 
-              name="number" 
-              value={formData.number} 
+              type="number" 
+              name="phone_number" 
+              value={formData.phone_number} 
               onChange={handleChange} 
               required 
             />
@@ -101,12 +155,28 @@ const ContactForm = () => {
             <label>Website/Social Media Link</label>
             <input 
               type="url" 
-              name="website" 
-              value={formData.website} 
+              name="website_or_social_link" 
+              value={formData.website_or_social_link} 
               onChange={handleChange} 
             />
           </div>
-          <button type="submit">Submit</button>
+          <div className="form-group">
+            <label>What is {num1} + {num2}? <span style={{color:'red', marginLeft:'15px'}}>{numError}</span></label>
+            <input 
+              type="number" 
+              name="check_human"      
+              required                     
+            />            
+          </div>          
+
+          <div className="form-group">
+            <button type="submit" disabled={btnLoading}>{btnLoading ? <span className='btn-loader'></span>:'Submit'} </button>
+            {success && (
+              <p>
+                ✅ Message sent successfully!
+              </p>
+            )}
+          </div>          
         </form>
       </div>
       <Footer/>

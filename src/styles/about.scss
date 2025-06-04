@@ -1,12 +1,11 @@
 .about-container {
 
   .read-toggle{
-        color: #49b9e0;
-    /* text-decoration: underline; */
+    color: #49b9e0;    
     cursor: pointer;
   }
 
-.aboutUs_banner {
+  .aboutUs_banner {
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -28,9 +27,7 @@
     }
 
   }
-}
-
-  
+  }
 
   .about-grid-section {
     display: grid;
@@ -42,13 +39,13 @@
     background-image: url("/assets/about/about_us_bg.png");
     min-height: 70vh;
     background-size: cover;
-  
+
     .text-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 2rem;
-  
+
       h2 {
         font-size: 2rem;
         // font-weight: bold;
@@ -56,19 +53,19 @@
         margin-bottom: 1rem;
         text-transform: uppercase;
       }
-  
+
       p {
         font-size: 1rem;
         line-height: 1.5;
         color: #ffea00;
       }
     }
-  
+
     .image-content {
       display: flex;
       justify-content: center;
       align-items: center;
-  
+
       img {
         width: 100%;
         max-width: 450px;
@@ -78,33 +75,34 @@
       }
     }
   }
-  
-  /* Responsive for Mobile */
   @media (max-width: 768px) {
     .about-grid-section {
       grid-template-columns: 1fr;
       text-align: center;
-      padding: 2rem;
-  
+      padding: 1rem;
+
       .image-content {
         order: -1; // Image appears first on mobile
         margin-bottom: 1rem;
-      }
-  
-      .text-content {
-        padding: 1rem;
-  
-        h2 {
-          font-size: 1rem;
+        img{
+          height: 400px;
+          object-fit: contain;
         }
-  
+      }
+
+      .text-content {
+        padding: 0rem;      
+        h2 {
+          font-size: 1rem;          
+        }
         p {
           font-size: 0.9rem;
+          text-align: left;
         }
       }
     }
   }
-  
+
   .tapas_gupta{
   display: flex;
   justify-content: center;
@@ -115,122 +113,9 @@
   min-height: 70vh;
   margin-bottom: 10px;
 
-  .profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    .profile-image {
-      width: 450px;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-
-      svg {
-        font-size: 1rem;
-        color: #000;
-        cursor: pointer;
-        transition: transform 0.2s;
-
-        &:hover {
-          transform: scale(1.1);
-          color: #0077b5;
-        }
-      }
-    }
+  &.odd{
+    flex-direction: row-reverse;
   }
-
-  .bio-section {
-    flex: 1;
-    max-width: 600px;
-
-    .frame {
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
-
-    .paper {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      border: 2px solid aqua;
-    }
-
-    .paper:nth-child(1) { top: 10px; left: -10px; }
-    .paper:nth-child(2) { top: 5px; left: -5px; }
-    .paper:nth-child(3) { top: 0px; left: 0px; }
-
-    .paper:last-child {
-      background: #ffea00;
-      // border-color: yellow;
-      position: relative;
-    }
-
-    .paper:last-child::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 40px;
-      height: 40px;
-      background: white;
-      clip-path: polygon(100% 0, 100% 100%, 0 0);
-    }
-
-    .bio-box {
-      padding: 1rem;
-      position: relative;
-
-      .border-design {
-        padding: 1rem;
-        // border: 3px solid #000;
-        position: relative;
-
-        &::before,
-
-        &::before {
-          top: -10px;
-          left: -10px;
-        }
-
-        &::after {
-          bottom: -10px;
-          right: -10px;
-        }
-
-        p {
-          font-size: 1rem;
-          line-height: 1.5;
-          color: #333;
-        }
-
-
-      }
-    }
-  }
-}
-
-.abhishek_gupta{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 4rem;
-  background-color: #ffea00;
-  min-height: 70vh;
-  margin-bottom: 10px;
 
   .profile-section {
     display: flex;
@@ -331,33 +216,31 @@
           font-size: 1rem;
           line-height: 1.5;
           color: #333;
-        }
-
-        .read-more,
-        .read-less {
-          margin-top: 1rem;
-          padding: 0.5rem 0.8rem;
-          border: none;
-          background-color: #49b9e0;
-          color: #fff;
-          font-weight: bold;
-          cursor: pointer;
-          transition: background 0.2s;
-          margin-left: 10px;
-
-          &:hover {
-            background-color: #333;
+          overflow: hidden;
+          &.limit{
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-clamp: 7;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
           }
         }
+        
+        button{
+          all: unset;
+          color: #2291a7;
+          cursor: pointer;
+        }
       }
     }
   }
-}
-
-
-@media (max-width: 768px) {
+  }
+  @media (max-width: 768px) {
   .tapas_gupta {
     flex-direction: column;
+        &.odd{
+      flex-direction: column;
+    }
     padding: 2rem;
 
     .profile-section {
@@ -369,12 +252,13 @@
 
     .bio-section {
       max-width: 100%;
-      text-align: center;
+      // text-align: center;
 
       .bio-box {
         padding: 1rem;
 
         .border-design {
+          padding: 1rem 0;
           p {
             font-size: 0.9rem; // Adjusted for mobile readability
           }
@@ -382,40 +266,10 @@
       }
     }
   }
-}
-
-@media (max-width: 768px) {
-  .abhishek_gupta {
-    flex-direction: column;
-    padding: 2rem;
-
-    .profile-section {
-      order: -1; // Move profile section to the top
-      .profile-image {
-        width: 280px; // Adjust image size for smaller screens
-      }
-    }
-
-    .bio-section {
-      max-width: 100%;
-      text-align: center;
-
-      .bio-box {
-        padding: 1rem;
-
-        .border-design {
-          p {
-            font-size: 0.9rem; // Adjust text size for better readability
-          }
-        }
-      }
-    }
   }
-}
 
-.about {
-  background-color: #ffea00;
-  // margin-top: -10px;
-}
+  .about {
+    background-color: #ffea00;
+  }
 
 }
