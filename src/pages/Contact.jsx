@@ -54,7 +54,7 @@ const ContactForm = () => {
           website_or_social_link: '',
         })
       }catch(err){
-        console.log(err)
+        // console.log(err)
       }finally{
         setBtnLoading(false)
         generateNumber()
