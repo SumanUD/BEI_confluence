@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/about.scss";
 import { FaLinkedin } from "react-icons/fa";
-import { CiMail } from "react-icons/ci";
+import { HiOutlineMail } from "react-icons/hi";
+import { SlGlobe } from "react-icons/sl";
 import { useRef } from "react";
 
 import about_us from "/assets/about/about_us.png";
@@ -29,7 +30,7 @@ const AboutUs = () => {
         const res = await axios.get(api + '/aboutcms');
         const res2 = await axios.get(api + '/allbrands');        
         setAbout(res.data.data)
-        setBrand(res2.data.data)            
+        setBrand(res2.data.data)          
       }catch(err){
         console.log(err)
       }
@@ -111,9 +112,9 @@ const AboutUs = () => {
         <div className="about-grid-section">
           <div className="text-content">
             <h2>About Us</h2>
-            <p>
+            <div  className="text-yellow">
               <RenderEmbeddedText embeddedText={about.description}/>
-            </p>
+            </div>
           </div>
           <div className="image-content">
             <img src={about_us} alt="Our Journey" />
@@ -128,8 +129,9 @@ const AboutUs = () => {
                   <img src={item.photo} alt={item.name}/>
                 </div>
                 <div className="social-icons">
-                  <Link to="mailto:tapas@confluencecommunication.com" target="_blank"><CiMail /></Link>
-                  <Link to="https://www.linkedin.com/in/tapas-gupta-b70bb298/" target="_blank"><FaLinkedin /></Link>
+                  {item.website && <Link to={item.website} target="_blank"><SlGlobe /></Link>}
+                  {item.email && <Link to={'mailto:'+item.email} target="_blank"><HiOutlineMail /></Link>}
+                  {item.linkedin && <Link to={item.linkedin} target="_blank"><FaLinkedin /></Link>}
                 </div>
               </div>
               <div className="bio-section">
@@ -143,7 +145,7 @@ const AboutUs = () => {
                         <p className={limitText != item.name ? "limit" : ''}>{item.description}</p>
                         <button onClick={()=>handleShowMoreBio(item.name)}>
                           {
-                            limitText == item.name ? 'Show Less...' : 'Show More...'
+                            limitText == item.name ? '...Show Less' : 'Show More'
                           }
                         </button>                                                                     
                       </div>

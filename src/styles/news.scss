@@ -52,6 +52,12 @@
       background-size: 100%;
       object-fit: contain;
       background-repeat: no-repeat;
+
+      @media (max-width:500px){
+        min-height: 350px;
+        max-width: 320px;
+      }
+
     }
   }
 
@@ -83,15 +89,15 @@
     @media (max-width:500px){
       min-height: 350px;
       .slide-image {
-        height: 110%;
-        min-width: 520px;
+        height: 90%;
+        min-width: 455px;
         position: absolute;
-        top: -18px;
-        left: -16%;
+        top: -25px;
+        left: -22%;
         scale: 0.6;
         transform: rotate(-4deg);
         h2{
-          font-size: 2rem;
+          font-size: 1.8rem;
           margin-top: 12px;
         }
       }

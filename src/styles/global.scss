@@ -63,13 +63,17 @@ h1 {
 
   img{
     height: 300px;
-
     max-width: 400px;
     width: 100%;
     z-index: 9999;
     backdrop-filter: blur(12px);
     object-fit: contain;
+    @media (width < 800px){
+      max-height: 100px;
+    }
   }
+
+
 }
 
 .mute_unmute{
