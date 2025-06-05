@@ -30,7 +30,11 @@ const AboutUs = () => {
         const res = await axios.get(api + '/aboutcms');
         const res2 = await axios.get(api + '/allbrands');        
         setAbout(res.data.data)
-        setBrand(res2.data.data)          
+        const remove1 = res2.data.data.filter(item => item.brand_name !== "Nando's")
+        // const remove2 = remove1.filter(item => item.brand_name !== "Nando's")
+        // const remove3 = remove2.filter(item => item.brand_name !== "Gyan Dairy")
+        setBrand(remove1)    
+        // setBrand(res2.data.data)      
       }catch(err){
         console.log(err)
       }

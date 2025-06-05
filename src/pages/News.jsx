@@ -1,11 +1,17 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/news.scss";
-import { useEffect, useState } from "react";
-import Slider from "react-slick";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { useEffect, useState, useRef } from "react";
+
+import { Link } from "react-router-dom";
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay , Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay'; // only if needed
+import 'swiper/css/navigation';
+import '../styles/logoSlider.scss';
+
 import axios from "axios";
 
 const News = () => {
@@ -17,7 +23,7 @@ const News = () => {
     async function getNew(){
       try{
         const res = await axios.get(api + '/news')        
-        setNews(res.data.data)               
+        setNews(res.data.data)              
       }catch(err){
         console.log(err)
       }
@@ -32,31 +38,6 @@ const News = () => {
     }, 2500);
   }
   handleLoadingScreen(false)
-  
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-      responsive: [
-    {
-      breakpoint: 1024, // below 1024px
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 968, // below 768px
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-    // autoplay: true,
-    // autoplaySpeed: 3000,
-  };
-
 
   return (
     <>
@@ -71,28 +52,32 @@ const News = () => {
         <img src="/assets/news/news.png" alt="img" className="img1" />
         <img src="/assets/news/tag.jpg" alt="img" className="img2" />
         <div className="news-slider">
-          <Slider {...sliderSettings} className="brand-slider">
-            {
-              news?.map((item, index)=>(
-                <div className="slide" key={index}>                 
-                  <a href={item.news_link} target="_blank">
-                    <div className="slide-image">          
-                      <h2 className="text">{item.news_title}</h2>           
-                      <img 
-                        src={item.thumbnail_picture}
-                        alt="" 
-                        loading="lazy"
-                        decoding="async"
-                        fetchPriority="high"                  
-                      />
-                    </div>
-                  </a>
-                </div>
-              ))
-            }
-          
+          <Swiper
+              modules={[Navigation, Autoplay]}
+              navigation={true}
+              loop={true}           
+              spaceBetween={50}                          
+              breakpoints={{
+                700: { slidesPerView: 2 },                       
+                0: { slidesPerView: 1 },
+              }}  
+          >
 
-          </Slider>
+            {news.map((item, index) => (
+              <SwiperSlide key={index}>
+                <Link to={item.news_link} target="_blank">
+                  <div className="news_title">{item.news_title}</div>
+                  <img
+                    src={item.thumbnail_picture}
+                    className="swiper-lazy"
+                    alt={index}                    
+                    loading="lazy"                    
+                  />                  
+                </Link>
+              </SwiperSlide>
+            ))}
+
+          </Swiper>
         </div>
 
       </div>

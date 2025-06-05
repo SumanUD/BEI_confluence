@@ -80,7 +80,10 @@ const EnglishOven = () => {
       try{
         const res = await axios.get(api + '/allbrands')
         setTheBrand(res.data.data.find(obj => obj.brand_name == brand.split('_').join(' ')))        
-        setBrand(res.data.data)        
+        const remove1 = res.data.data.filter(item => item.brand_name !== "Nando's")
+        // const remove2 = remove1.filter(item => item.brand_name !== "Nando's")
+        // const remove3 = remove2.filter(item => item.brand_name !== "Gyan Dairy")
+        setBrand(remove1)
       }catch(err){
         console.log(err)
       }
@@ -241,6 +244,7 @@ const EnglishOven = () => {
                       className="swiper-lazy"
                       alt={img.brand_name}
                       width="150"
+                      loading="lazy"
                     />                  
                   </a>
                 </SwiperSlide>

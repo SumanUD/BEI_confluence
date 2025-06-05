@@ -19,26 +19,12 @@ const ImageGallery = ({ images = [] }) => {
     images.forEach((img, i) => {
       columns[i % 4].push(img);
     });
-    setColumnsImage(columns);
-    console.log(columns); // ✅ Now you'll see your 4-column arrays
+    setColumnsImage(columns);    
   }, [images]);
 
   return (
     <div className="imageGallery">
       <div className="container">
-        {/* <div className="row">
-          {images.map((image, index) => (
-            <div key={index} className="col-md-3 mb-3">
-              <img
-                src={image}
-                className="img-fluid rounded"
-                alt={image.alt || `Gallery Image ${index + 1}`}
-                onClick={() => openLightbox(index)}
-                style={{ cursor: "pointer" }}
-              />
-            </div>
-          ))}
-        </div> */}
 
         <div className="row">
           {columnsImage.map((columnImg, colIndex) => (

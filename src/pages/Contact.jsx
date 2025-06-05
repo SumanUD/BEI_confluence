@@ -40,12 +40,10 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
 
     e.preventDefault();    
-    console.log(formData);       
     setSuccess(false) 
     async function submitForm(){
       try{
         const res = await axios.post(api+'/contact', formData)
-        console.log(res)
         setFormData({
           name: '',
           organization_name: '',
